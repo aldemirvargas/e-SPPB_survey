@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -11,48 +11,42 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   formLogin!: FormGroup;
-  subRef$!: Subscription;
+  subLogin$!: Subscription;
+  
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private usersService: UsersService
   ) {
     this.formLogin = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {}
   onLogin() {
-    const user = {
-      username: this.formLogin.get('username')?.value,
+    const credentials = {
+      email: this.formLogin.get('email')?.value,
       password: this.formLogin.get('password')?.value,
     };
 
-    this.subRef$ = this.http
-      .post('http://localhost:8000/api/v1/login', user, {
-        observe: 'response',
-      })
-      .subscribe(
-        (res) => {
-          console.log(res);
-          if (res.status === 200) {
-            sessionStorage.setItem('token', 'res.body');
-            this.router.navigate(['/home']);
-          }
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    this.subLogin$ = this.usersService.login(credentials).subscribe({
+      next: (response) => {
+        console.log(response);
+        sessionStorage.setItem('token', response.access_token || '');
+        this.router.navigate(['/home']);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
-  ngOnDestroy(): void {
-    if (this.subRef$) {
-      this.subRef$.unsubscribe();
-    }
-  }
+
   
+  ngOnDestroy(): void {
+    this.subLogin$ && this.subLogin$.unsubscribe();
+  }
 }

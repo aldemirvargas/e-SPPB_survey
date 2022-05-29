@@ -1,1 +1,7 @@
-<p>home works!</p>
+<app-navbar *ngIf="isLoggedIn" [userLogged]="user"></app-navbar>
+<div class="tab-content" id="survayTabsContents">
+    <div class="tab-pane fade show active" id="survey" role="tabpanel" aria-labelledby="survey-tab">
+        <app-survey></app-survey>
+
+    </div>
+  </div>
