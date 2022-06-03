@@ -6,44 +6,57 @@
             <label for="basic-url" class="form-label fw-bold ">Diga en que: </label>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Año </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'year'" [id]="'year'" (value)="MinimentalTestForm.year = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">2. Mes </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'month'" [id]="'month'" (value)="MinimentalTestForm.month = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Día </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'day'" [id]="'day'" (value)="MinimentalTestForm.day = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Día/semana </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'dayOfWeek'" [id]="'dayOfWeek'"
+                    (value)="MinimentalTestForm.dayOfWeek = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Hora (mañana – tarde – noche) </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'hourOfDay'" [id]="'hourOfDay'"
+                    (value)="MinimentalTestForm.hourOfDay = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-one>
             </div>
             <label for="basic-url" class="form-label fw-bold ">En qué </label>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. País Nos encontramos </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'country'" [id]="'country'" (value)="MinimentalTestForm.country = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Departamento </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'department'" [id]="'department'"
+                    (value)="MinimentalTestForm.department = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Ciudad </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'city'" [id]="'city'" (value)="MinimentalTestForm.city = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Barrio </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'district'" [id]="'district'" (value)="MinimentalTestForm.district = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">1. Lugar o sitio </span>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'place'" [id]="'place'" (value)="MinimentalTestForm.place = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <label for="basic-url" class="form-label fw-bold ">MEMORIA</label>
             <div class="input-group mb-2">
@@ -52,7 +65,9 @@
                     Un punto por cada acierto. Repítalos hasta que el paciente los registre. Anote el número de ensayos
                     requeridos.
                 </p>
-                <app-range-zero-three></app-range-zero-three>
+                <app-range-zero-three [name]="'memoryNames'" [id]="'memoryNames'"
+                    (value)="MinimentalTestForm.memoryNames = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-three>
             </div>
             <label for="basic-url" class="form-label fw-bold ">ATENCIÓN Y CÁLCULO</label>
             <div class="input-group mb-2">
@@ -60,14 +75,18 @@
                     Restar de 100-7 en forma sucesiva. Pare a la quinta respuesta. Registre un punto por cada respuesta
                     correcta (93, 86, 79,72, 65) Si tiene 100 pesos y se gasta 7, cuanto le queda?
                 </p>
-                <app-range-zero-five></app-range-zero-five>
+                <app-range-zero-five [name]="'subtract'" [id]="'subtract'"
+                    (value)="MinimentalTestForm.subtract = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-five>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Diga los meses del año al revés (Diciembre, Noviembre, Octubre, Septiembre, Agosto) realizar uno u
                     otro: Número o meses
                 </p>
-                <app-range-zero-five></app-range-zero-five>
+                <app-range-zero-five [name]="'monthOfYear'" [id]="'monthOfYear'"
+                    (value)="MinimentalTestForm.monthOfYear = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-five>
             </div>
             <label for="basic-url" class="form-label fw-bold ">EVOCACIÓN</label>
             <div class="input-group mb-2">
@@ -75,45 +94,57 @@
                     Recuerde las tres palabras que le repetí antes. Registre el número de palabras que recuerda. Diga
                     tres nombres: CASA, MESA, ARBOL. Un segundo para cada uno.
                 </p>
-                <app-range-zero-three></app-range-zero-three>
+                <app-range-zero-three [name]="'pevocationWords'" [id]="'pevocationWords'"
+                    (value)="MinimentalTestForm.pevocationWords = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-three>
             </div>
             <label for="basic-url" class="form-label fw-bold ">LENGUAJE</label>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Denominar dos objetos (Reloj, Lápiz)
                 </p>
-                <app-range-zero-two></app-range-zero-two>
+                <app-range-zero-two [name]="'masterTwoObjects'" [id]="'masterTwoObjects'"
+                    (value)="MinimentalTestForm.masterTwoObjects = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-two>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Repetir: En um trigal habia cinco perros
                 </p>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'repeat'" [id]="'repeat'" (value)="MinimentalTestForm.repeat = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Comprensión: Obedecer uma orden en três etapas “Tome la hoja con su mano derecha, dóblela por la
                     mitad y póngala en el suelo”
                 </p>
-                <app-range-zero-three></app-range-zero-three>
+                <app-range-zero-three [name]="'paperFold'" [id]="'paperFold'"
+                    (value)="MinimentalTestForm.paperFold = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-three>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Lea y obedezca la siguiente orden “Cierre los ojos”
                 </p>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'closeEyesOrder'" [id]="'closeEyesOrder'"
+                    (value)="MinimentalTestForm.closeEyesOrder = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Escriba una frase
                 </p>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'writeSentence'" [id]="'writeSentence'"
+                    (value)="MinimentalTestForm.writeSentence = $event" (valueChange)="recalculateTotalPoints($event)">
+                </app-range-zero-one>
             </div>
             <div class="input-group mb-2">
                 <p class="me-3" id="basic-addon1">
                     Copie el diseño o dibujo
                 </p>
-                <app-range-zero-one></app-range-zero-one>
+                <app-range-zero-one [name]="'drawing'" [id]="'drawing'" (value)="MinimentalTestForm.drawing = $event"
+                    (valueChange)="recalculateTotalPoints($event)"></app-range-zero-one>
             </div>
             <div class="row mb-2">
                 <div class="col">
@@ -128,8 +159,8 @@
 
                 <span class="input-group-text" id="basic-addon1">Puntaje </span>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                    aria-describedby="basic-addon1" value="10" disabled>
-                    <span class="input-group-text" id="basic-addon1">/30 </span>
+                    aria-describedby="basic-addon1" value="{{minimentalTestTotalPoints}}" disabled>
+                <span class="input-group-text" id="basic-addon1">/30 </span>
             </div>
             <app-paginator></app-paginator>
         </div>

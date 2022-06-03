@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,14 +26,16 @@ import { RangeZeroOneComponent } from './components/range-zero-one/range-zero-on
 import { RangeZeroThreeComponent } from './components/range-zero-three/range-zero-three.component';
 import { RangeZeroFiveComponent } from './components/range-zero-five/range-zero-five.component';
 import { RangeZeroTwoComponent } from './components/range-zero-two/range-zero-two.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, SurveyComponent, PersoInitComponent, MinimentalTestComponent, DemographicInitComponent, DemographicCronicConditionsComponent, HabitsComponent, PhysicalActivityComponent, LivingSpaceInitComponent, EnviromentBuildComponent, PhysicalPerformanceComponent, ElectronicDevicesComponent, AgreeComponent, PaginatorComponent, RangeZeroOneComponent, RangeZeroThreeComponent, RangeZeroFiveComponent, RangeZeroTwoComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, SurveyComponent, PersoInitComponent, MinimentalTestComponent, DemographicInitComponent, DemographicCronicConditionsComponent, HabitsComponent, PhysicalActivityComponent, LivingSpaceInitComponent, EnviromentBuildComponent, PhysicalPerformanceComponent, ElectronicDevicesComponent, AgreeComponent, PaginatorComponent, RangeZeroOneComponent, RangeZeroThreeComponent, RangeZeroFiveComponent, RangeZeroTwoComponent, ActivitiesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {

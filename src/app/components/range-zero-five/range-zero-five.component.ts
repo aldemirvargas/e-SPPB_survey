@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-range-zero-five',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./range-zero-five.component.css']
 })
 export class RangeZeroFiveComponent implements OnInit {
+  @Input() public name: string;
+  @Input() public id: string;
 
-  constructor() { }
+  @Output() public value = new EventEmitter<number>();
+  @Output() public valueChange = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  setAnswer(rating: number){
+    this.value.emit(rating);
+    this.valueChange.emit(true);
   }
 
 }

@@ -1,13 +1,14 @@
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" name="btnradio1" id="btnradio1" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio1">0</label>
-  
-    <input type="radio" class="btn-check" name="btnradio2" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio2">1</label>
-  
-    <input type="radio" class="btn-check" name="btnradio3" id="btnradio3" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio3">2</label>
+  <input type="radio" class="btn-check" name="rating-{{name}}" id="rating-{{id}}-1" autocomplete="off">
+  <label class="btn btn-outline-primary" for="rating-{{id}}-1" (click)="setAnswer(0)">0</label>
 
-    <input type="radio" class="btn-check" name="btnradio4" id="btnradio4" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio4">3</label>
+  <input type="radio" class="btn-check" name="rating-{{name}}" id="rating-{{id}}-2" autocomplete="off">
+  <label class="btn btn-outline-primary" for="rating-{{id}}-2" (click)="setAnswer(1)">1</label>
+
+  <input type="radio" class="btn-check" name="rating-{{name}}" id="rating-{{id}}-3" autocomplete="off">
+  <label class="btn btn-outline-primary" for="rating-{{id}}-3" (click)="setAnswer(2)">2</label>
+
+  <input type="radio" class="btn-check" name="rating-{{name}}" id="rating-{{id}}-4" autocomplete="off">
+  <label class="btn btn-outline-primary" for="rating-{{id}}-4" (click)="setAnswer(3)">3</label>
+  
   </div>
