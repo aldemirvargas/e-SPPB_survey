@@ -2,6 +2,7 @@ export interface Person  {
     id:          number;
     name:        string;
     lastName:   string;
+    document:    string;
     address:       string;
     subRegion:         string;
     municipality: string;

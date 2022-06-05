@@ -1,11 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-minimental-test',
   templateUrl: './minimental-test.component.html',
   styleUrls: ['./minimental-test.component.css'],
 })
-export class MinimentalTestComponent implements OnInit, OnChanges {
+export class MinimentalTestComponent implements OnInit {
   public minimentalTestTotalPoints: number = 0;
 
   public MinimentalTestForm: any = {
@@ -32,9 +32,6 @@ export class MinimentalTestComponent implements OnInit, OnChanges {
   };
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
 
   ngOnInit(): void {}
   

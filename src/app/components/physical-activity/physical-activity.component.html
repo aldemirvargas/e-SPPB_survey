@@ -5,102 +5,66 @@
                 sin parar.</label>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">Camina a ritmo muy lento </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'physicalActivityq1'" [id]="'physicalActivityq1'" (value)="physicalActivity.q1 = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">Camina a ritmo Lento </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'physicalActivityq2'" [id]="'physicalActivityq2'" (value)="physicalActivity.q2 = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">Camina a ritmo ligero </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'physicalActivityq3'" [id]="'physicalActivityq3'" (value)="physicalActivity.q3 = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">Camina a ritmo moderado </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'physicalActivityq4'" [id]="'physicalActivityq4'" (value)="physicalActivity.q4 = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">Camina a ritmo rápido </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'physicalActivityq5'" [id]="'physicalActivityq5'" (value)="physicalActivity.q5 = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">20.2 Cuántos días a la semana, camina al paso elegido, al menos
                     durante 10 minutos sin parar.</span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">0</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking1" (click)="setAnswer('q6',0)">0</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">1</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking2" (click)="setAnswer('q6',1)">1</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">2</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking3" (click)="setAnswer('q6',2)">2</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">3</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking4" (click)="setAnswer('q6',3)">3</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio5">4</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking5" (click)="setAnswer('q6',4)">4</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio6">5</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking6" (click)="setAnswer('q6',5)">5</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio7">6</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking7" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking7" (click)="setAnswer('q6',6)">6</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio8">7</label>
+                    <input type="radio" class="btn-check" name="walking" id="walking8" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking8" (click)="setAnswer('q6',7)">7</label>
 
                 </div>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">20.3 En promedio, cuánto tiempo en total camina al ritmo elegido.</span>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="basic-addon1" value="5353">
+                aria-describedby="basic-addon1" [(ngModel)]="physicalActivity.q7">
                 <span class="input-group-text" id="basic-addon1">Minutos</span>
             </div>
             <label for="basic-url" class="form-label fw-bold">20.4 Piense, en una semana común y corriente durante el mes pasado.</label>
             <div class="input-group mb-2">
 
                 <span class="input-group-text" id="basic-addon1">Con qué frecuencia y tiempo, hace actividades deportivas, recreativas o de ocio.</span>
-                <app-activities></app-activities>
+                <app-activities (value)="physicalActivity.activities = $event"></app-activities>
             </div>
-
             <app-paginator></app-paginator>
         </div>
     </div>

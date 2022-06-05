@@ -6,10 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enviroment-build.component.css']
 })
 export class EnviromentBuildComponent implements OnInit {
-
+ public enviromentBuild: any = {
+    q1: null,
+    q2: null,
+    q3: null,
+    q4: null,
+    q5: null,
+    q6: null,
+    q7: null,
+    q8: null,
+    q9: null,
+    q10: null,
+    q11: null,
+    q12: null,
+    q13: null,
+    q14: null,
+    q15: null,
+    q16: null,
+    q17: null,
+ }
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

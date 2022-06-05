@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./habits.component.css']
 })
 export class HabitsComponent implements OnInit {
-
+public habits: any = {
+  q1: null,
+  q2: null,
+  q3: null,
+  q4: null,
+  q5: null,
+  q6: null
+}
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

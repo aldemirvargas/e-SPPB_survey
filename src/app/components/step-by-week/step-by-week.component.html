@@ -1,0 +1,14 @@
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="living-space-{{name}}" id="living-space-{{id}}-option-1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="living-space-{{id}}-option-1" (click)="setAnswer('1stepByweek')">Menos de 1 vez/semana</label>
+
+    <input type="radio" class="btn-check" name="living-space-{{name}}" id="living-space-{{id}}-option-2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="living-space-{{id}}-option-2" (click)="setAnswer('1-3stepByweek')">1-3 veces/semana</label>
+
+    <input type="radio" class="btn-check" name="living-space-{{name}}" id="living-space-{{id}}-option-3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="living-space-{{id}}-option-3" (click)="setAnswer('4-6stepByweek')">4-6 veces/semana</label>
+
+    <input type="radio" class="btn-check" name="living-space-{{name}}" id="living-space-{{id}}-option-4" autocomplete="off">
+    <label class="btn btn-outline-primary" for="living-space-{{id}}-option-4" (click)="setAnswer('daily')">Diario</label>
+
+</div>

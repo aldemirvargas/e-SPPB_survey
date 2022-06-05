@@ -6,28 +6,37 @@
 
                 <span class="input-group-text" id="basic-addon1">Primer intento</span>
 
-                <input type="text" class="form-control" placeholder="Distancia Inicial Cm" aria-label="address"
-                    aria-describedby="basic-addon1">
-                <input type="text" class="form-control" placeholder="Distancia Final Cm" aria-label="address"
-                    aria-describedby="basic-addon1">
-                <input type="text" class="form-control" placeholder="Total distancia recorrida" aria-label="address"
-                    aria-describedby="basic-addon1" disabled>
+                <input type="number" class="form-control" placeholder="Distancia Inicial Cm" aria-label="address"
+                    aria-describedby="basic-addon1"
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.firstTry.distance1" (keyup)="changeDistance()">
+                <input type="number" class="form-control" placeholder="Distancia Final Cm" aria-label="address"
+                    aria-describedby="basic-addon1"
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.firstTry.distance2" (keyup)="changeDistance()">
+                <input type="number" class="form-control" placeholder="Total distancia recorrida" aria-label="address"
+                    aria-describedby="basic-addon1" disabled
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.firstTry.distanceFinal">
             </div>
             <div class="input-group mb-2">
 
                 <span class="input-group-text" id="basic-addon1">Segundo intento</span>
 
-                <input type="text" class="form-control" placeholder="Distancia Inicial Cm" aria-label="address"
-                    aria-describedby="basic-addon1">
-                <input type="text" class="form-control" placeholder="Distancia Final Cm" aria-label="address"
-                    aria-describedby="basic-addon1">
-                <input type="text" class="form-control" placeholder="Total distancia recorrida" aria-label="address"
-                    aria-describedby="basic-addon1" disabled>
+                <input type="number" class="form-control" placeholder="Distancia Inicial Cm" aria-label="address"
+                    aria-describedby="basic-addon1"
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.secondTry.distance1"
+                    (keyup)="changeDistance()">
+                <input type="number" class="form-control" placeholder="Distancia Final Cm" aria-label="address"
+                    aria-describedby="basic-addon1"
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.secondTry.distance2"
+                    (keyup)="changeDistance()">
+                <input type="number" class="form-control" placeholder="Total distancia recorrida" aria-label="address"
+                    aria-describedby="basic-addon1" disabled
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.secondTry.distanceFinal">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Mayor distancia recorrida </span>
-                <input type="text" class="form-control" placeholder="Distancia Inicial Cm" aria-label="address"
-                    aria-describedby="basic-addon1" disabled>
+                <input type="number" class="form-control" placeholder="Mayor Distancia Cm" aria-label="address"
+                    aria-describedby="basic-addon1" disabled
+                    [(ngModel)]="pshysicalPerformance.scopeFunctionality.maxDistance">
                 <span class="input-group-text" id="basic-addon1">cm </span>
             </div>
             <label for="basic-url" class="form-label fw-bold">SPPB
@@ -38,37 +47,54 @@
                 <div class="input-group mb-2">
                     <span class="me-3" id="basic-addon1">Un pie al lado del otro</span>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio1">Mantiene 10 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot1"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestFoot1"
+                            (click)="setAnswerBalance('balanceTestFoot',1)">Mantiene 10 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">No mantiene 10 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot2"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestFoot2"
+                            (click)="setAnswerBalance('balanceTestFoot',0)">No mantiene 10 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">No lo intenta</label>
+                        <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot3"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestFoot3"
+                            (click)="setAnswerBalance('balanceTestFoot',0)">No lo intenta</label>
 
                     </div>
                 </div>
-                <div class="input-group mb-2 mt-2">
+                <div class="input-group mb-2 mt-2" *ngIf="pshysicalPerformance.balanceTestFoot.doNotTry">
 
-                    <span class="input-group-text" id="basic-addon1">Número de segundos que mantuvo la posoción si es
+                    <span class="input-group-text" id="basic-addon1">Número de
+                        segundos que mantuvo la posoción si es
                         &lt;
                         10 seg</span>
                     <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                        aria-describedby="basic-addon1" value="7">
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.balanceTestFoot.duration">
                 </div>
-                <span class="me-3" id="basic-addon1">Si el participante no intentó la prueba o falló, señale
+                <span class="me-3" id="basic-addon1" *ngIf="pshysicalPerformance.balanceTestFoot.doNotTry">Si el
+                    participante no intentó la prueba o falló, señale
                     porqué:</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Intentó pero no fue capaz </label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                    *ngIf="pshysicalPerformance.balanceTestFoot.doNotTry">
+                    <input type="radio" class="btn-check" name="balanceTestFootTry" id="balanceTestFootTry1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestFootTry1"
+                        (click)="setAnswerBalanceTry('balanceTestFoot','try But Not was can')">Intentó pero no fue capaz
+                    </label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No puede mantener la posición sin
+                    <input type="radio" class="btn-check" name="balanceTestFootTry" id="balanceTestFootTry2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestFootTry2"
+                        (click)="setAnswerBalanceTry('balanceTestFoot','need help')">No puede mantener la posición sin
                         ayuda</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, Ud. se sintió inseguro
+                    <input type="radio" class="btn-check" name="balanceTestFootTry" id="balanceTestFootTry3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestFootTry3"
+                        (click)="setAnswerBalanceTry('balanceTestFoot','do not try')">No lo intentó, Ud. se sintió
+                        inseguro
                     </label>
 
                 </div>
@@ -81,24 +107,57 @@
                 <div class="input-group mb-2">
                     <span class="me-3" id="basic-addon1">Posición semitamdem</span>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio1">Mantiene 10 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem1"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestSemitamdem1"
+                            (click)="setAnswerBalance('balanceTestSemitamdem',1)">Mantiene 10 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">No mantiene 10 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem2"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestSemitamdem2"
+                            (click)="setAnswerBalance('balanceTestSemitamdem',0)">No mantiene 10 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">No lo intenta</label>
+                        <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem3"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestSemitamdem3"
+                            (click)="setAnswerBalance('balanceTestSemitamdem',0)">No lo intenta</label>
 
                     </div>
                 </div>
-                <div class="input-group mb-2 mt-2">
+                <div class="input-group mb-2 mt-2" *ngIf="pshysicalPerformance.balanceTestSemitamdem.doNotTry">
 
                     <span class="input-group-text" id="basic-addon1">Número de segundos que mantuvo la posoción si es
                         &lt; 10
                         seg</span>
-                    <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                        aria-describedby="basic-addon1" value="6">
+                    <input type="number" class="form-control" placeholder="#" aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        [(ngModel)]="pshysicalPerformance.balanceTestSemitamdem.duration">
+                </div>
+                <span class="me-3" id="basic-addon1" *ngIf="pshysicalPerformance.balanceTestSemitamdem.doNotTry">Si el
+                    participante no intentó la prueba o falló, señale
+                    porqué:</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                    *ngIf="pshysicalPerformance.balanceTestSemitamdem.doNotTry">
+                    <input type="radio" class="btn-check" name="balanceTestSemitamdemTry" id="balanceTestSemitamdemTry1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestSemitamdemTry1"
+                        (click)="setAnswerBalanceTry('balanceTestSemitamdem','try But Not was can')">Intentó pero no fue
+                        capaz </label>
+
+                    <input type="radio" class="btn-check" name="balanceTestSemitamdemTry" id="balanceTestSemitamdemTry2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestSemitamdemTry2"
+                        (click)="setAnswerBalanceTry('balanceTestSemitamdem','need help')">No puede mantener la posición
+                        sin
+                        ayuda</label>
+
+                    <input type="radio" class="btn-check" name="balanceTestSemitamdemTry" id="balanceTestSemitamdemTry3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestSemitamdemTry3"
+                        (click)="setAnswerBalanceTry('balanceTestSemitamdem','do not try')">No lo intentó, Ud. se sintió
+                        inseguro
+                    </label>
+
                 </div>
             </div>
             <label for="basic-url" class="form-label fw-bold">Si no obtiene ningún punto: señale la razón por la cual no
@@ -108,34 +167,67 @@
                 <div class="input-group mb-2">
                     <span class="me-3" id="basic-addon1">Posición tamdem</span>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio1">Mantiene 10 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem1"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestTamdem1"
+                            (click)="setAnswerBalance('balanceTestTamdem',2)">Mantiene 10 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Mantiene de 3 a 9.99 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem2"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestTamdem2"
+                            (click)="setAnswerBalance('balanceTestTamdem',1)">Mantiene de 3 a 9.99 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Mantiene &lt; 3 seg</label>
+                        <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem3"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestTamdem3"
+                            (click)="setAnswerBalance('balanceTestTamdem',0)">Mantiene &lt; 3 seg</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">No lo intenta</label>
+                        <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem4"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="balanceTestTamdem4"
+                            (click)="setAnswerBalance('balanceTestTamdem',0)">No lo intenta</label>
 
                     </div>
                 </div>
-                <div class="input-group mb-2 mt-2">
+                <div class="input-group mb-2 mt-2" *ngIf="pshysicalPerformance.balanceTestTamdem.doNotTry">
 
                     <span class="input-group-text" id="basic-addon1">Número de segundos que mantuvo la posoción si es
                         &lt; 10
                         seg</span>
-                    <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                        aria-describedby="basic-addon1" value="9">
+                    <input type="number" class="form-control" placeholder="#" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.balanceTestTamdem.duration">
+                </div>
+                <span class="me-3" id="basic-addon1" *ngIf="pshysicalPerformance.balanceTestTamdem.doNotTry">Si el
+                    participante no intentó la prueba o falló, señale
+                    porqué:</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                    *ngIf="pshysicalPerformance.balanceTestTamdem.doNotTry">
+                    <input type="radio" class="btn-check" name="balanceTestTamdemTry" id="balanceTestTamdemTry1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestTamdemTry1"
+                        (click)="setAnswerBalanceTry('balanceTestTamdem','try But Not was can')">Intentó pero no fue
+                        capaz </label>
+
+                    <input type="radio" class="btn-check" name="balanceTestTamdemTry" id="balanceTestTamdemTry2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestTamdemTry2"
+                        (click)="setAnswerBalanceTry('balanceTestTamdem','need help')">No puede mantener la posición sin
+                        ayuda</label>
+
+                    <input type="radio" class="btn-check" name="balanceTestTamdemTry" id="balanceTestTamdemTry3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="balanceTestTamdemTry3"
+                        (click)="setAnswerBalanceTry('balanceTestTamdem','do not try')">No lo intentó, Ud. se sintió
+                        inseguro
+                    </label>
+
                 </div>
             </div>
             <div class="input-group mb-2">
 
                 <span class="input-group-text" id="basic-addon1">Puntaje total prueba de equilibrio </span>
                 <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                    aria-describedby="basic-addon1" value="20" disabled>
+                    aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.balanceTestTotalPoints" disabled>
             </div>
             <label for="basic-url" class="form-label fw-bold">Puntaje de la prueba de velocidad de la marcha:
             </label>
@@ -148,8 +240,8 @@
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">1. Tiempo para caminar 4 metros</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                        aria-describedby="basic-addon1" value="25">
+                    <input type="number" class="form-control" placeholder="Time" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.speedtestA.timeWalking">
                     <span class="input-group-text" id="basic-addon1">seg</span>
                 </div>
                 <div class="card card-body mb-2">
@@ -157,34 +249,46 @@
                         <span class="me-3" id="basic-addon1">2. Si el participante no intentó la prueba o no la
                             completó, señale por qué</span>
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio1">Intentó pero no fue capaz</label>
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA1"
+                                (click)="setAnswerSpeedtest('speedtestA', 'try but do not can')">Intentó pero no fue
+                                capaz</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No podía caminar sin ayuda</label>
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA2"
+                                (click)="setAnswerSpeedtest('speedtestA', 'need help')">No podía caminar sin
+                                ayuda</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, Ud. se sintió
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA3"
+                                (click)="setAnswerSpeedtest('speedtestA', 'do not try for me')">No lo intentó, Ud. se
+                                sintió
                                 inseguro</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, el participante se
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA4"
+                                (click)="setAnswerSpeedtest('speedtestA', 'does not try for you')">No lo intentó, el
+                                participante se
                                 sintió inseguro</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No pudo entender las instrucciones
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA5" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA5"
+                                (click)="setAnswerSpeedtest('speedtestA', 'do not can understand instructions')">No pudo
+                                entender las instrucciones
                             </label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">Se negó</label>
+                            <input type="radio" class="btn-check" name="speedtestA" id="speedtestA6" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestA6"
+                                (click)="setAnswerSpeedtest('speedtestA', 'refused')">Se negó</label>
 
                         </div>
                     </div>
                     <div class="input-group mb-2">
 
                         <span class="input-group-text" id="basic-addon1">otro</span>
-                        <input type="text" class="form-control" placeholder="Cual.." aria-label="Username"
-                            aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Cuál.." aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            [(ngModel)]="pshysicalPerformance.speedtestA.doNotTryComment">
                     </div>
                 </div>
             </div>
@@ -194,17 +298,26 @@
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">3. Ayuda para caminar primera prueba </span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Ninguna</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingA" id="helpForWalkingA1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingA1"
+                        (click)="setAnswer('helpForWalkingA','noOne')">Ninguna</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Bastón</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingA" id="helpForWalkingA2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingA2"
+                        (click)="setAnswer('helpForWalkingA','cane')">Bastón</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Otra</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingA" id="helpForWalkingA3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingA3"
+                        (click)="setAnswer('helpForWalkingA','other')">Otra</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">El adulto mayor fue incapaz para
+                    <input type="radio" class="btn-check" name="helpForWalkingA" id="helpForWalkingA4"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingA4"
+                        (click)="setAnswer('helpForWalkingA','unable');setPoints('helpForWalkingAPoints',0)">El adulto
+                        mayor fue incapaz para
                         caminar</label>
 
                 </div>
@@ -215,8 +328,8 @@
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">1. Tiempo para caminar 4 metros</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                        aria-describedby="basic-addon1" value="25">
+                    <input type="number" class="form-control" placeholder="Time" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.speedtestB.timeWalking">
                     <span class="input-group-text" id="basic-addon1">seg</span>
                 </div>
                 <div class="card card-body mb-2">
@@ -224,26 +337,37 @@
                         <span class="me-3" id="basic-addon1">2. Si el participante no intentó la prueba o no la
                             completó, señale por qué</span>
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio1">Intentó pero no fue capaz</label>
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB1"
+                                (click)="setAnswerSpeedtest('speedtestB', 'try but do not can')">Intentó pero no fue
+                                capaz</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No podía caminar sin ayuda</label>
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB2"
+                                (click)="setAnswerSpeedtest('speedtestB', 'need help')">No podía caminar sin
+                                ayuda</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, Ud. se sintió
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB3"
+                                (click)="setAnswerSpeedtest('speedtestB', 'do not try for me')">No lo intentó, Ud. se
+                                sintió
                                 inseguro</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, el participante se
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB4"
+                                (click)="setAnswerSpeedtest('speedtestB', 'does not try for you')">No lo intentó, el
+                                participante se
                                 sintió inseguro</label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No pudo entender las instrucciones
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB5" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB5"
+                                (click)="setAnswerSpeedtest('speedtestB', 'do not can understand instructions')">No pudo
+                                entender las instrucciones
                             </label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">Se negó</label>
+                            <input type="radio" class="btn-check" name="speedtestB" id="speedtestB6" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="speedtestB6"
+                                (click)="setAnswerSpeedtest('speedtestB', 'refused')">Se negó</label>
 
                         </div>
                     </div>
@@ -251,7 +375,8 @@
 
                         <span class="input-group-text" id="basic-addon1">otro</span>
                         <input type="text" class="form-control" placeholder="Cual.." aria-label="Username"
-                            aria-describedby="basic-addon1">
+                            aria-describedby="basic-addon1"
+                            [(ngModel)]="pshysicalPerformance.speedtestB.doNotTryComment">
                     </div>
                 </div>
             </div>
@@ -261,17 +386,26 @@
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">3. Ayuda para caminar primera prueba </span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Ninguna</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingB" id="helpForWalkingB1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingB1"
+                        (click)="setAnswer('helpForWalkingB','noOne')">Ninguna</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Bastón</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingB" id="helpForWalkingB2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingB2"
+                        (click)="setAnswer('helpForWalkingB','cane')">Bastón</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Otra</label>
+                    <input type="radio" class="btn-check" name="helpForWalkingB" id="helpForWalkingB3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingB3"
+                        (click)="setAnswer('helpForWalkingB','other')">Otra</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">El adulto mayor fue incapaz para
+                    <input type="radio" class="btn-check" name="helpForWalkingB" id="helpForWalkingB4"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="helpForWalkingB4"
+                        (click)="setAnswer('helpForWalkingB','unable');setPoints('helpForWalkingBPoints',0)">El adulto
+                        mayor fue incapaz para
                         caminar</label>
 
                 </div>
@@ -279,8 +413,9 @@
             <div class="input-group mb-2">
 
                 <span class="input-group-text" id="basic-addon1">Menor Tiempo</span>
-                <input type="text" class="form-control" placeholder="5.3" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                <input type="number" class="form-control" placeholder="Menor tiempo" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.walkingMinTime"
+                    (keyup)="setPointsWalking()">
                 <span class="input-group-text" id="basic-addon1">seg</span>
             </div>
             <label for="basic-url" class="form-label fw-bold">Puntaje de Prueba incorporarse de una silla
@@ -290,26 +425,26 @@
             </label>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">A. Seguro de pie sin ayuda </span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                </div>
+                <app-yes-not [name]="'standingSafety'" [id]="'standingSafety'"
+                    (value)="pshysicalPerformance.standingSafety = $event"></app-yes-not>
             </div>
             <div class="input-group mb-2">
                 <span class="me-3" id="basic-addon1">B. Resultados </span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">No utiliza los brazos </label>
+                    <input type="radio" class="btn-check" name="pointsForStanding5Min" id="pointsForStanding5Min1"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pointsForStanding5Min1"
+                        (click)="pshysicalPerformance.enable5Steps = true">No utiliza los brazos </label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Utiliza los brazos </label>
+                    <input type="radio" class="btn-check" name="pointsForStanding5Min" id="pointsForStanding5Min2"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pointsForStanding5Min2"
+                        (click)="setPoints('pointsForStanding5Min',0);">Utiliza los brazos </label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">No completo la prueba </label>
+                    <input type="radio" class="btn-check" name="pointsForStanding5Min" id="pointsForStanding5Min3"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pointsForStanding5Min3"
+                        (click)="setPoints('pointsForStanding5Min',0);">No completo la prueba </label>
 
                 </div>
 
@@ -317,107 +452,41 @@
                     <div class="input-group mb-2">
                         <span class="me-3" id="basic-addon1">2. Si el participante no intentó la prueba o no la
                             completó, señale por qué</span>
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio1">Intentó pero no fue capaz</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No podía caminar sin ayuda</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, Ud. se sintió
-                                inseguro</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, el participante se
-                                sintió inseguro</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No pudo entender las instrucciones
-                            </label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">Se negó</label>
-
-                        </div>
+                        <app-frecuency [name]="'armsResultComment'" [id]="'armsResultComment'"
+                            (value)="pshysicalPerformance.armsResultComment = $event"></app-frecuency>
                     </div>
                     <div class="input-group mb-2">
 
                         <span class="input-group-text" id="basic-addon1">otro</span>
                         <input type="text" class="form-control" placeholder="Cual.." aria-label="Username"
-                            aria-describedby="basic-addon1">
+                            aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.armsResultComment">
                     </div>
                 </div>
-                <div class="card card-body mb-2">
+                <div class="card card-body mb-2" *ngIf="pshysicalPerformance.enable5Steps">
                     <label for="basic-url" class="form-label fw-bold">Incorporarse de forma repetida
                     </label>
                     <div class="input-group mb-2">
                         <span class="me-3" id="basic-addon1">A. Seguro para incorporarse 5 veces </span>
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio1">Si</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No</label>
-
-                        </div>
+                        <app-yes-not [name]="'standingSafety5Min'" [id]="'standingSafety5Min'"
+                            (value)="pshysicalPerformance.standingSafety5Min = $event"></app-yes-not>
                     </div>
                     <label for="basic-url" class="form-label fw-bold">B. Si completo la prueba registre el tiempo:
                     </label>
                     <div class="input-group mb-2">
                         <span class="input-group-text" id="basic-addon1">Tiempo para incorporarse 5 veces</span>
-                        <input type="text" class="form-control" placeholder="5.4" aria-label="Username"
-                            aria-describedby="basic-addon1">
+                        <input type="number" class="form-control" placeholder="Time" aria-label="Username"
+                            aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.timeStanding5Steps"
+                            (keyup)="setPointsSit()">
                         <span class="input-group-text" id="basic-addon1">seg</span>
+                        <span class="input-group-text" id="basic-addon1"><input type="checkbox" class="form-check-input"
+                                id="standing5Steps" [(ngModel)]="pshysicalPerformance.doNotCOmplete5Steps"
+                                (change)="setPointsSit()"> Incapaz de completar 5</span>
                     </div>
                     <div class="input-group mb-2">
                         <span class="me-3" id="basic-addon1">2. Si el participante no intentó la prueba o no la
                             completó, señale por qué</span>
-                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio1">Intentó pero no fue capaz</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No podía caminar sin ayuda</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, Ud. se sintió
-                                inseguro</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No lo intentó, el participante se
-                                sintió inseguro</label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">No pudo entender las instrucciones
-                            </label>
-
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="btnradio2">Se negó</label>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">PUNTAJE DE INCORPORARSE DE UNA SILLA</span>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio1">Incapaz de completar 5 o lo completa en
-                            >60 seg </label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">16,70 seg o más</label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">13,70 a 16,69 seg </label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">11,20 a 13,69 seg </label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">11,19 seg o menos
-                        </label>
-
+                        <app-frecuency [name]="'standingSafety5MinComment'" [id]="'standingSafety5MinComment'"
+                            (value)="pshysicalPerformance.standingSafety5MinComment = $event"></app-frecuency>
                     </div>
                 </div>
                 <label for="basic-url" class="form-label fw-bold">PUNTAJE TOTAL SPPB
@@ -425,35 +494,35 @@
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">Equilibrio de pie</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="Username"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.balanceTestTotalPoints"
+                        disabled>
                     <span class="input-group-text" id="basic-addon1">Puntos</span>
                 </div>
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">Velocidad de la marcha</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="Username"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.helpForWalkingPoints"
+                        disabled>
                     <span class="input-group-text" id="basic-addon1">Puntos</span>
                 </div>
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">Incorporarse de una silla</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="Username"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.pointsForStanding5Min"
+                        disabled>
                     <span class="input-group-text" id="basic-addon1">Puntos</span>
                 </div>
                 <div class="input-group mb-2">
 
                     <span class="input-group-text" id="basic-addon1">Total</span>
-                    <input type="text" class="form-control" placeholder="25" aria-label="Username"
-                        aria-describedby="basic-addon1">
+                    <input type="number" class="form-control" placeholder="Total" aria-label="Username"
+                        aria-describedby="basic-addon1" [(ngModel)]="pshysicalPerformance.totalPointsSPPB" disabled>
                     <span class="input-group-text" id="basic-addon1">Puntos</span>
                 </div>
-
-
             </div>
-
 
             <app-paginator></app-paginator>
         </div>

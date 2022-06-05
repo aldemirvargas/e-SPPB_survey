@@ -4,5 +4,5 @@ export interface Medical {
     date_birth: string;
     email: string;
     phone_number: string;
-    id_number: string;
+    document: string;
 }

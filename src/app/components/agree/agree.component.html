@@ -16,13 +16,13 @@
                 <div class="input-group mb-2">
                     <span class="input-group-text" id="basic-addon1">No Formulario:</span>
                     <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                        aria-describedby="basic-addon1" value="15456" disabled>
+                        aria-describedby="basic-addon1" value="Automático" disabled>
                 </div>
                 <h6 class="text-center">CONSENTIMIENTO INFORMADO </h6>
 
                 <p class="textJustify">
-                    Yo __________________________________________ con documento de identificación
-                    Número_______________________ he sido seleccionado para participar en el estudio piloto en mención
+                    Yo <strong>{{dataSurveyService?.surveyFinal?.patient?.name}} {{dataSurveyService?.surveyFinal?.patient?.lastName}}</strong> con documento de identificación
+                    Número <strong>{{dataSurveyService?.surveyFinal?.patient?.document}}</strong> he sido seleccionado para participar en el estudio piloto en mención
                     del cual es investigador responsable el Docente Éder Peña Quimbaya y el grupo de investigación
                     quienes desarrollan la prueba piloto en Manizales.
                     1. Me han informado que el objetivo del proyecto es validar y evaluar los E-SPPB+ que miden en el
@@ -44,7 +44,7 @@
                     7. Se me garantiza la privacidad, el anonimato y confidencialidad en la información
                     suministrada/obtenida y por lo tanto, autorizo la publicación del estudio.
 
-                    Con fecha ________________________, he comprendido lo anterior, y una vez se me aclararon todas las
+                    Con fecha <strong>{{dataSurveyService?.surveyFinal?.date}}</strong>, he comprendido lo anterior, y una vez se me aclararon todas las
                     dudas que surgieron con mi participación en el proyecto, acepto gratuita y voluntariamente a
                     participar en el proyecto piloto “Diseño y validación de dispositivos electrónicos E-SPPB para la
                     evaluación de la capacidad funcional en adultos mayores del Departamento de Caldas”. Se me ha
@@ -53,16 +53,16 @@
                 </p>
 
 
-            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agreeModal">
                 Aceptar y Guardar
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="agreeModal" tabindex="-1" aria-labelledby="agreeModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Consentimiento informado</h5>
+                            <h5 class="modal-title" id="agreeModalLabel">Consentimiento informado</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Aceptar</button>
+                            <button type="button" class="btn btn-primary" (click)="sendForm()" data-bs-dismiss="modal">Aceptar</button>
                         </div>
                     </div>
                 </div>

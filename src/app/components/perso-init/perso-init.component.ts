@@ -23,13 +23,14 @@ export class PersoInitComponent implements OnInit {
     date_birth: null,
     email: null,
     phone_number: null,
-    id_number: null,
+    document: null,
 
   };
   public participant: Person = {
     id: null,
     name: '',
     lastName: '',
+    document: '',
     address: '',
     subRegion: '',
     municipality: '',
@@ -43,6 +44,7 @@ export class PersoInitComponent implements OnInit {
     id: null,
     name: '',
     lastName: '',
+    document: '',
     address: '',
     subRegion: '',
     municipality: '',
@@ -64,7 +66,7 @@ export class PersoInitComponent implements OnInit {
   @HostListener('window:keyup', ['$event'])
   searchEvaluator(event: Event) {
     let value = event.target['value'];
-    if (value.length > 2) {
+    if (value && value.length > 2) {
       this.searching = true;
       this.surveyService.getMedicalById(value).subscribe({
         next: (response) => {

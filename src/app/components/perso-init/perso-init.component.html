@@ -27,7 +27,7 @@
                 <input type="text" class="form-control" placeholder="Busqueda" aria-label="Username"
                     aria-describedby="basic-addon1" (keyup)="searchEvaluator($event)" [id]="currentEvaluator.id">
                 <input type="text" class="form-control" placeholder="Número de identificación" aria-label="Username"
-                    aria-describedby="basic-addon1" [(ngModel)]="currentEvaluator.id_number" disabled>
+                    aria-describedby="basic-addon1" [(ngModel)]="currentEvaluator.document" disabled>
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Username"
                     aria-describedby="basic-addon1" [(ngModel)]="currentEvaluator.name" disabled>
 
@@ -36,7 +36,7 @@
             <div class="card card-body mb-2"  *ngIf="searching">
                     <button class="btn btn-outline-primary btn-sm d-flex justify-content-center mb-2"  *ngFor="let evaluator of evaluators"
                         (click)="setEvaluator(evaluator)"><i class="bi bi-person-check-fill"></i>
-                        {{evaluator.id_number}} | {{evaluator.name}}</button>
+                        {{evaluator.document}} | {{evaluator.name}}</button>
                 
             </div>
             <div class="input-group mb-2">
@@ -54,6 +54,11 @@
                 <span class="input-group-text" id="basic-addon1">Nombres</span>
                 <input type="text" class="form-control" placeholder="Nombres" aria-label="firstName"
                     aria-describedby="basic-addon1" [(ngModel)]="participant.name">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Documento</span>
+                <input type="text" class="form-control" placeholder="Documento" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="participant.document">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Dirección completa</span>
@@ -110,6 +115,11 @@
                 <span class="input-group-text" id="basic-addon1">Nombres</span>
                 <input type="text" class="form-control" placeholder="Nombres" aria-label="firstName"
                     aria-describedby="basic-addon1" [(ngModel)]="companion.name">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Documento</span>
+                <input type="text" class="form-control" placeholder="Documento" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="companion.document">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Dirección completa</span>

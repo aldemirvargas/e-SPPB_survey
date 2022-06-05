@@ -27,9 +27,16 @@ import { RangeZeroThreeComponent } from './components/range-zero-three/range-zer
 import { RangeZeroFiveComponent } from './components/range-zero-five/range-zero-five.component';
 import { RangeZeroTwoComponent } from './components/range-zero-two/range-zero-two.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
+import { YesNotDoNotKnowComponent } from './components/yes-not-do-not-know/yes-not-do-not-know.component';
+import { YesNotComponent } from './components/yes-not/yes-not.component';
+import { FrecuencyComponent } from './components/frecuency/frecuency.component';
+import { StepByWeekComponent } from './components/step-by-week/step-by-week.component';
+import { HelpOfOtherComponent } from './components/help-of-other/help-of-other.component';
+import { ManyOrSomeComponent } from './components/many-or-some/many-or-some.component';
+import { ProblemsComponent } from './components/problems/problems.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, SurveyComponent, PersoInitComponent, MinimentalTestComponent, DemographicInitComponent, DemographicCronicConditionsComponent, HabitsComponent, PhysicalActivityComponent, LivingSpaceInitComponent, EnviromentBuildComponent, PhysicalPerformanceComponent, ElectronicDevicesComponent, AgreeComponent, PaginatorComponent, RangeZeroOneComponent, RangeZeroThreeComponent, RangeZeroFiveComponent, RangeZeroTwoComponent, ActivitiesComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, SurveyComponent, PersoInitComponent, MinimentalTestComponent, DemographicInitComponent, DemographicCronicConditionsComponent, HabitsComponent, PhysicalActivityComponent, LivingSpaceInitComponent, EnviromentBuildComponent, PhysicalPerformanceComponent, ElectronicDevicesComponent, AgreeComponent, PaginatorComponent, RangeZeroOneComponent, RangeZeroThreeComponent, RangeZeroFiveComponent, RangeZeroTwoComponent, ActivitiesComponent, YesNotDoNotKnowComponent, YesNotComponent, FrecuencyComponent, StepByWeekComponent, HelpOfOtherComponent, ManyOrSomeComponent, ProblemsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

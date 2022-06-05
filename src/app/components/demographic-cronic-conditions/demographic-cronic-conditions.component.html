@@ -5,230 +5,115 @@
                 <span class="me-1 mt-2" id="basic-addon1">¿Diría usted que su salud es muy buena, buena,
                     regular, mala o muy mala?</span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Muy buena</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q1" (click)="setAnswer('q1','very good')">Muy buena</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Buena</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q2" (click)="setAnswer('q1','good')">Buena</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">Regular</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q3" (click)="setAnswer('q1','regular')">Regular</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">Mala</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q4" (click)="setAnswer('q1','bad')">Mala</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio5">Muy mala</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q5" (click)="setAnswer('q1','very bad')">Muy mala</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio6">No sabe</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q6" (click)="setAnswer('q1','do not know')">No sabe</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio7">No responde</label>
+                    <input type="radio" class="btn-check" name="cronic-condition-q" id="cronic-condition-q7" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cronic-condition-q7" (click)="setAnswer('q1','not answer')">No responde</label>
 
                 </div>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Ha perdido 5kg (10 lbs) o más de manera
                     involuntaria en los últimos 12 meses?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q2'" [id]="'q2'" (value)="cronicConditions.q2 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que
                     tiene hipertensión o la presión sanguínea alta?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q3'" [id]="'q3'" (value)="cronicConditions.q3 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le ha dicho que
                     tiene diabetes o altos niveles de azúcar en la sangre?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q4'" [id]="'q4'" (value)="cronicConditions.q4 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que
                     tiene cáncer o un tumor maligno, excluyendo tumores pequeños de la piel?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q5'" [id]="'q5'" (value)="cronicConditions.q5 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que
                     tiene alguna enfermedad pulmonar crónica tal como asma, bronquitis o enfisema?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q6'" [id]="'q6'" (value)="cronicConditions.q6 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que ha
                     tenido un ataque al corazón, enfermedad coronaria, angina, insuficiencia cardiaca congestiva u otros
                     problemas del corazón?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q7'" [id]="'q7'" (value)="cronicConditions.q7 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que ha
                     tenido un derrame, una embolia, un ataque o trombosis cerebral?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q8'" [id]="'q8'" (value)="cronicConditions.q8 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que
                     tiene artritis, reumatismo u osteoartritis?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q9'" [id]="'q9'" (value)="cronicConditions.q9 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="me-1 mt-2" id="basic-addon1">¿Alguna vez un médico o enfermera le dijo que
                     tiene osteoporosis?</span>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">SI</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">NO</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">No sabe</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">No responde</label>
-
-                </div>
+                <app-yes-not-do-not-know [name]="'q10'" [id]="'q10'" (value)="cronicConditions.q10 = $event"></app-yes-not-do-not-know>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Cuál es el número de medicamentos o drogas recetados
                     por un médico, que ha tomado el último mes </span>
                 <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                    aria-describedby="basic-addon1" [(ngModel)]="cronicConditions.medicationNumber">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Nombre del medicamento</span>
                 <input type="text" class="form-control" placeholder="Nombre del medicamento" aria-label="Username"
-                    aria-describedby="basic-addon1">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción..."></textarea>
+                    aria-describedby="basic-addon1"  [(ngModel)]="cronicConditions.medicationName">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción..."  [(ngModel)]="cronicConditions.medicationDescription"></textarea>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Cuál es el número de medicamentos o drogas, no
                     recetados por un médico que ha tomado el último mes</span>
                 <input type="text" class="form-control" placeholder="#" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                    aria-describedby="basic-addon1" [(ngModel)]="cronicConditions.medicationNumberNotPrescription">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Nombre del medicamento</span>
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                    aria-describedby="basic-addon1"[(ngModel)]="cronicConditions.medicationNameNotPrescription">
             </div>
 
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Talla</span>
                 <input type="text" class="form-control" placeholder="Talla" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" [(ngModel)]="cronicConditions.size" (keyup)="updateIMC()">
+                <span class="input-group-text" id="basic-addon1">cm</span>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Peso</span>
                 <input type="text" class="form-control" placeholder="Peso" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" [(ngModel)]="cronicConditions.weight"  (keyup)="updateIMC()">
+                <span class="input-group-text" id="basic-addon1">Kg</span>
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">IMC</span>
                 <input type="text" class="form-control" placeholder="IMC" aria-label="Username"
-                    aria-describedby="basic-addon1" disabled>
+                    aria-describedby="basic-addon1" disabled [(ngModel)]="cronicConditions.imc">
             </div>
 
             <label for="basic-url" class="form-label fw-bold">Presión sanguínea preferiblemente en el brazo derecho, si
@@ -236,11 +121,11 @@
             <div class="input-group mb-2">
                 <span class="input-group-text me-1" id="basic-addon1">Presión sanguínea</span>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Brazo izquierdo </label>
+                    <input type="radio" class="btn-check" name="bloodp-pressure" id="bloodp-pressure1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="bloodp-pressure1" (click)="setAnswer('bloodpPpressure','left')">Brazo izquierdo </label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Brazo derecho</label>
+                    <input type="radio" class="btn-check" name="bloodp-pressure" id="bloodp-pressure2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="bloodp-pressure2" (click)="setAnswer('bloodpPressure','rigth')">Brazo derecho</label>
 
                 </div>
             </div>
