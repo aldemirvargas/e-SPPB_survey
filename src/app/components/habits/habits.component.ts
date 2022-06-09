@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-habits',
@@ -14,8 +15,11 @@ public habits: any = {
   q5: null,
   q6: null
 }
-  constructor() { }
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) { }
 
   ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.habits = this.habits;
   }
 }

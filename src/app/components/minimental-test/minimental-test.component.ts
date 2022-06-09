@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-minimental-test',
@@ -6,7 +7,7 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
   styleUrls: ['./minimental-test.component.css'],
 })
 export class MinimentalTestComponent implements OnInit {
-  public minimentalTestTotalPoints: number = 0;
+  //public minimentalTestTotalPoints: number = 0;
 
   public MinimentalTestForm: any = {
     city: null,
@@ -29,18 +30,23 @@ export class MinimentalTestComponent implements OnInit {
     subtract: null,
     writeSentence: null,
     year: null,
+    finalScore: 0,
   };
-  constructor() {}
+  constructor(
+public dataSurveyService: DataSurveyService
+  ) {}
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.minimentalTestForm = this.MinimentalTestForm;
+  }
   
   recalculateTotalPoints(recalculate: boolean) {
     if (recalculate) {
-      this.minimentalTestTotalPoints = 0;
+      this.MinimentalTestForm.finalScore = 0;
       for (const key in this.MinimentalTestForm) {
-        if (this.MinimentalTestForm[key] !== null) {
-          this.minimentalTestTotalPoints += this.MinimentalTestForm[key];
+        if (key != 'finalScore' && this.MinimentalTestForm[key] !== null ) {
+          this.MinimentalTestForm.finalScore += this.MinimentalTestForm[key];
         }
       }
     }

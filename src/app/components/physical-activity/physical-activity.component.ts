@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../models/Activity';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-physical-activity',
@@ -8,7 +9,7 @@ import { Activity } from '../../models/Activity';
 })
 export class PhysicalActivityComponent implements OnInit {
   public activities: Activity[] = [];
-public physicalActivity = {
+public physicalActivity: any = {
   q1: null,
   q2: null,
   q3: null,
@@ -18,9 +19,12 @@ public physicalActivity = {
   q7: null,
   activities: this.activities
 }
-  constructor() { }
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) { }
 
   ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.physicalActivity = this.physicalActivity;
   }
   setAnswer(key: string, value: number) {
     this.physicalActivity[key] = value;

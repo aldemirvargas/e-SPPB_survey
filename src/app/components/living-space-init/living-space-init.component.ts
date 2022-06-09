@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-living-space-init',
@@ -26,8 +27,11 @@ public livingSpace: any = {
   q17: null,
   q18: null,
 }
-  constructor() { }
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) { }
 
   ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.livingSpace = this.livingSpace;
   }
 }

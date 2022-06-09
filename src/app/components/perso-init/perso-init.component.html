@@ -1,5 +1,7 @@
 <div class="container">
     <div class="row">
+        <div (click)="averQuePasa()" class="col-md-12">hoal
+        </div>
         <div class="col">
             <h5 class="fw-bold  text-center mb-2">COLCIENCIAS</h5>
             <h5 class="fw-bold  text-center mb-2">
@@ -33,11 +35,12 @@
 
 
             </div>
-            <div class="card card-body mb-2"  *ngIf="searching">
-                    <button class="btn btn-outline-primary btn-sm d-flex justify-content-center mb-2"  *ngFor="let evaluator of evaluators"
-                        (click)="setEvaluator(evaluator)"><i class="bi bi-person-check-fill"></i>
-                        {{evaluator.document}} | {{evaluator.name}}</button>
-                
+            <div class="card card-body mb-2 maxContent" *ngIf="searchingEvaluator">
+                <button class="btn btn-outline-primary btn-sm d-flex justify-content-center mb-2"
+                    *ngFor="let evaluator of evaluators" (click)="setEvaluator(evaluator)"><i
+                        class="bi bi-person-check-fill"></i>
+                    {{evaluator.document}} | {{evaluator.name}}</button>
+
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">FECHA EVALUACIÓN</span>
@@ -46,24 +49,31 @@
             </div>
             <label for="basic-url" class="form-label fw-bold">PARTICIPANTE</label>
             <div class="input-group mb-2">
-                <span class="input-group-text" id="basic-addon1">Apellidos</span>
-                <input type="text" class="form-control" placeholder="Apellidos" aria-label="lastName"
-                    aria-describedby="basic-addon1" [(ngModel)]="participant.lastName">
-            </div>
-            <div class="input-group mb-2">
-                <span class="input-group-text" id="basic-addon1">Nombres</span>
-                <input type="text" class="form-control" placeholder="Nombres" aria-label="firstName"
-                    aria-describedby="basic-addon1" [(ngModel)]="participant.name">
-            </div>
-            <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Documento</span>
                 <input type="text" class="form-control" placeholder="Documento" aria-label="firstName"
                     aria-describedby="basic-addon1" [(ngModel)]="participant.document">
+            </div>
+            <div class="card card-body mb-2 maxContent" *ngIf="searchingPatient">
+                <button class="btn btn-outline-primary btn-sm d-flex justify-content-center mb-2"
+                    *ngFor="let patient of patients" (click)="setPatient(patient)"><i
+                        class="bi bi-person-check-fill"></i>
+                    {{patient.document}} | {{patient.name}}</button>
+
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Nombre completo</span>
+                <input type="text" class="form-control" placeholder="Nombre completo" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="participant.name">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Dirección completa</span>
                 <input type="text" class="form-control" placeholder="Dirección" aria-label="address"
                     aria-describedby="basic-addon1" [(ngModel)]="participant.address">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">email</span>
+                <input type="text" class="form-control" placeholder="Correo Electrónico" aria-label="address"
+                    aria-describedby="basic-addon1" [(ngModel)]="participant.email">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Subregión Caldas</span>
@@ -74,6 +84,11 @@
                 <span class="input-group-text" id="basic-addon1">Municipio</span>
                 <input type="text" class="form-control" placeholder="Municipio" aria-label="address"
                     aria-describedby="basic-addon1" [(ngModel)]="participant.municipality">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Zona</span>
+                <input type="text" class="form-control" placeholder="Zona" aria-label="address"
+                    aria-describedby="basic-addon1" [(ngModel)]="participant.zone">
             </div>
             <div class="input-group mb-2">
                 <div class="row">
@@ -87,8 +102,9 @@
                     </div>
                     <div class="col-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck" [(ngModel)]="participant.isUrban">
+                            <input class="form-check-input" type="checkbox" id="gridCheck"
+                                [(ngModel)]="participant.isUrban">
+                            <label class="form-check-label" for="gridCheck">
                                 Urbana
                             </label>
                         </div>
@@ -107,19 +123,19 @@
             </div>
             <label for="basic-url" class="form-label fw-bold">ACOMPAÑANTE</label>
             <div class="input-group mb-2">
-                <span class="input-group-text" id="basic-addon1">Apellidos</span>
-                <input type="text" class="form-control" placeholder="Apellidos" aria-label="lastName"
-                    aria-describedby="basic-addon1" [(ngModel)]="companion.lastName">
-            </div>
-            <div class="input-group mb-2">
-                <span class="input-group-text" id="basic-addon1">Nombres</span>
-                <input type="text" class="form-control" placeholder="Nombres" aria-label="firstName"
-                    aria-describedby="basic-addon1" [(ngModel)]="companion.name">
-            </div>
-            <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Documento</span>
                 <input type="text" class="form-control" placeholder="Documento" aria-label="firstName"
                     aria-describedby="basic-addon1" [(ngModel)]="companion.document">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Nombre completo</span>
+                <input type="text" class="form-control" placeholder="Nombre completo" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="companion.name">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Parentesco</span>
+                <input type="text" class="form-control" placeholder="Parentesco" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="companion.relationship">
             </div>
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Dirección completa</span>
@@ -135,6 +151,37 @@
                 <span class="input-group-text" id="basic-addon1">Celular</span>
                 <input type="text" class="form-control" placeholder="Celular" aria-label="address"
                     aria-describedby="basic-addon1" [(ngModel)]="companion.celPhone">
+            </div>
+            <label for="basic-url" class="form-label fw-bold">CENTRO MÉDICO</label>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.medical_center_name">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Departamento</span>
+                <input type="text" class="form-control" placeholder="Departamento" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.medical_center_state">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Ciudad</span>
+                <input type="text" class="form-control" placeholder="Ciudad" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.medical_center_city">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Dirección</span>
+                <input type="text" class="form-control" placeholder="Dirección" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.medical_center_address">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Latitud</span>
+                <input type="text" class="form-control" placeholder="Latitud" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.lat">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Longitud</span>
+                <input type="text" class="form-control" placeholder="Longitud" aria-label="firstName"
+                    aria-describedby="basic-addon1" [(ngModel)]="medicalCenter.long">
             </div>
             <!--paginador -->
             <app-paginator></app-paginator>

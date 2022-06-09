@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-enviroment-build',
@@ -25,8 +26,11 @@ export class EnviromentBuildComponent implements OnInit {
     q16: null,
     q17: null,
  }
-  constructor() { }
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) { }
 
   ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.enviromentBuild = this.enviromentBuild;
   }
 }

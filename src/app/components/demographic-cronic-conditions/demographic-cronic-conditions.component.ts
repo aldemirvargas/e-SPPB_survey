@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-demographic-cronic-conditions',
@@ -30,9 +31,13 @@ export class DemographicCronicConditionsComponent implements OnInit {
 
   };
 
-  constructor() {}
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.demographicCronicConditions = this.cronicConditions;
+  }
   setAnswer(key: string, value: string) {
     this.cronicConditions[key] = value;
   }

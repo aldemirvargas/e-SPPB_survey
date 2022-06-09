@@ -1,0 +1,4 @@
+.maxContent{
+    max-height: 170px;
+    overflow-y: scroll;
+}

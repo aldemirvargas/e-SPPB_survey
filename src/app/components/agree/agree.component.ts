@@ -13,7 +13,8 @@ export class AgreeComponent implements OnInit {
     private surveyService: SurveyService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   sendForm() {
     this.surveyService
       .sendSurvey(this.dataSurveyService.surveyFinal)

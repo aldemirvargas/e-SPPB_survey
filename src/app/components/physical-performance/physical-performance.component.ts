@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-physical-performance',
@@ -63,9 +64,13 @@ export class PhysicalPerformanceComponent implements OnInit {
     pointsForStanding5Min: null,
     totalPointsSPPB: null,
   };
-  constructor() {}
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.pshysicalPerformance = this.pshysicalPerformance;
+  }
   changeDistance() {
     this.pshysicalPerformance.scopeFunctionality.firstTry.distanceFinal =
       this.pshysicalPerformance.scopeFunctionality.firstTry.distance1 +

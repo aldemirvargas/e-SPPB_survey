@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSurveyService } from '../../services/data-survey.service';
 
 @Component({
   selector: 'app-demographic-init',
@@ -23,9 +24,13 @@ export class DemographicInitComponent implements OnInit {
     whichIncome: null,
     strat: null,
   };
-  constructor() {}
+  constructor(
+    public dataSurveyService: DataSurveyService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSurveyService.surveyFinal.demographicInit = this.demographicInit;
+  }
 
   setAnswer(key: string, answer: any) {
     this.demographicInit[key] = answer;

@@ -1,0 +1,220 @@
+{
+  "evaluator": {
+    "id": "4",
+    "name": "nMedico2",
+    "date_birth": "1901-09-01",
+    "email": "nmedico2@gmail.com",
+    "phone_number": "301",
+    "document": "1054"
+  },
+  "participant": {
+    "id": null,
+    "name": "Jorge Luis Ordoñez",
+    "document": "1053841556",
+    "address": "calle 106",
+    "subRegion": "",
+    "municipality": "",
+    "placeOfResident": "",
+    "isUrban": true,
+    "phone": "",
+    "celPhone": "",
+    "relationship": ""
+  },
+  "companion": {
+    "id": null,
+    "name": "anamaria",
+    "document": "1053834912",
+    "address": "",
+    "subRegion": "",
+    "municipality": "",
+    "placeOfResident": "",
+    "isUrban": false,
+    "phone": "",
+    "celPhone": "",
+    "relationship": "pareja"
+  },
+  "medicalCenter": {
+    "id": null,
+    "medical_center_name": "abellanas",
+    "medical_center_city": "manizales",
+    "medical_center_state": "caldas",
+    "medical_center_address": "dswf",
+    "lat": "-15",
+    "long": "45"
+  },
+  "date": "2022-06-08",
+  "minimentalTestForm": {
+    "city": null,
+    "closeEyesOrder": null,
+    "country": null,
+    "day": null,
+    "dayOfWeek": null,
+    "department": null,
+    "district": null,
+    "drawing": null,
+    "hourOfDay": null,
+    "masterTwoObjects": null,
+    "memoryNames": null,
+    "month": null,
+    "monthOfYear": null,
+    "paperFold": null,
+    "pevocationWords": null,
+    "place": null,
+    "repeat": null,
+    "subtract": null,
+    "writeSentence": null,
+    "year": null
+  },
+  "demographicInit": {
+    "dateOfBirth": null,
+    "age": null,
+    "sex": null,
+    "principalOcupation": null,
+    "secondaryOcupation": null,
+    "eps": null,
+    "socialSafety": null,
+    "civilStatus": null,
+    "cohabitants": null,
+    "ageOfScholarity": null,
+    "maxLevelScholary": null,
+    "isDependentOfFamily": null,
+    "whereIncome": null,
+    "whichIncome": null,
+    "strat": null
+  },
+  "demographicCronicConditions": {
+    "q1": null,
+    "q2": null,
+    "q3": null,
+    "q4": null,
+    "q5": null,
+    "q6": null,
+    "q7": null,
+    "q8": null,
+    "q9": null,
+    "q10": null,
+    "medicationNumber": null,
+    "medicationName": null,
+    "medicationDescription": null,
+    "medicationNumberNotPrescription": null,
+    "medicationNameNotPrescription": null,
+    "size": 1,
+    "weight": 0,
+    "imc": null,
+    "bloodpPpressure": null
+  },
+  "habits": {
+    "q1": null,
+    "q2": null,
+    "q3": null,
+    "q4": null,
+    "q5": null,
+    "q6": null
+  },
+  "physicalActivity": {
+    "q1": null,
+    "q2": null,
+    "q3": null,
+    "q4": null,
+    "q5": null,
+    "q6": null,
+    "q7": null,
+    "activities": []
+  },
+  "livingSpace": {
+    "q1": null,
+    "q2": null,
+    "q3": null,
+    "q4": null,
+    "q5": null,
+    "q6": null,
+    "q7": null,
+    "q8": null,
+    "q9": null,
+    "q10": null,
+    "q11": null,
+    "q12": null,
+    "q13": null,
+    "q14": null,
+    "q15": null,
+    "q16": null,
+    "q17": null,
+    "q18": null
+  },
+  "enviromentBuild": {
+    "q1": null,
+    "q2": null,
+    "q3": null,
+    "q4": null,
+    "q5": null,
+    "q6": null,
+    "q7": null,
+    "q8": null,
+    "q9": null,
+    "q10": null,
+    "q11": null,
+    "q12": null,
+    "q13": null,
+    "q14": null,
+    "q15": null,
+    "q16": null,
+    "q17": null
+  },
+  "pshysicalPerformance": {
+    "scopeFunctionality": {
+      "firstTry": {
+        "distance1": 0,
+        "distance2": 0,
+        "distanceFinal": 0
+      },
+      "secondTry": {
+        "distance1": 0,
+        "distance2": 0,
+        "distanceFinal": 0
+      },
+      "maxDistance": 0
+    },
+    "balanceTestFoot": {
+      "points": null,
+      "duration": null,
+      "doNotTry": false,
+      "doNotTryComment": null
+    },
+    "balanceTestSemitamdem": {
+      "points": null,
+      "duration": null,
+      "doNotTry": false,
+      "doNotTryComment": null
+    },
+    "balanceTestTamdem": {
+      "points": null,
+      "duration": null,
+      "doNotTry": false,
+      "doNotTryComment": null
+    },
+    "balanceTestTotalPoints": null,
+    "speedtestA": {
+      "timeWalking": null,
+      "doNotTryComment": null
+    },
+    "speedtestB": {
+      "timeWalking": null,
+      "doNotTryComment": null
+    },
+    "helpForWalkingA": null,
+    "helpForWalkingPoints": null,
+    "helpForWalkingB": null,
+    "walkingMinTime": null,
+    "standingSafety": null,
+    "pointsStandingSafety": null,
+    "armsResultPoints": null,
+    "armsResultComment": null,
+    "standingSafety5Min": null,
+    "enable5Steps": false,
+    "timeStanding5Steps": null,
+    "doNotCOmplete5Steps": false,
+    "standingSafety5MinComment": null,
+    "pointsForStanding5Min": null,
+    "totalPointsSPPB": null
+  }
+}
