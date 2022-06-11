@@ -28,6 +28,7 @@ export class DemographicCronicConditionsComponent implements OnInit {
     weight: 0,
     imc: null,
     bloodpPpressure: null,
+    waistDiameter: null,
 
   };
 

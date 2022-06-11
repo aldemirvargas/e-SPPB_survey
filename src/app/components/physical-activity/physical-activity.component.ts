@@ -10,13 +10,9 @@ import { DataSurveyService } from '../../services/data-survey.service';
 export class PhysicalActivityComponent implements OnInit {
   public activities: Activity[] = [];
 public physicalActivity: any = {
-  q1: null,
-  q2: null,
-  q3: null,
-  q4: null,
-  q5: null,
-  q6: null,
-  q7: null,
+  speed: null,
+  walkingDays: null,
+  walkingTime: null,
   activities: this.activities
 }
   constructor(
@@ -27,6 +23,9 @@ public physicalActivity: any = {
     this.dataSurveyService.surveyFinal.physicalActivity = this.physicalActivity;
   }
   setAnswer(key: string, value: number) {
+    this.physicalActivity[key] = value;
+  }
+  setAnswerString(key: string, value: string) {
     this.physicalActivity[key] = value;
   }
 
