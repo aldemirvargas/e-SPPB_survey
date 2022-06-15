@@ -2,78 +2,15 @@
     <div class="row">
         <div class="col">
             <label for="basic-url" class="form-label fw-bold">1. En qué medida su barrio tiene…</label>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Aceras o andenes irregulares.</span>
-                <app-many-or-some  [name]="'enviromentBuildq1'" [id]="'enviromentBuildq1'" (value)="enviromentBuild.q1 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Parques o áreas para caminar de fácil acceso</span>
-                <app-many-or-some  [name]="'enviromentBuildq2'" [id]="'enviromentBuildq2'" (value)="enviromentBuild.q2 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Parques y áreas para caminar seguro</span>
-                <app-many-or-some  [name]="'enviromentBuildq3'" [id]="'enviromentBuildq3'" (value)="enviromentBuild.q3 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Sitios para sentarse y descansar en las paradas del bus o
-                    parques</span>
-                <app-many-or-some  [name]="'enviromentBuildq4'" [id]="'enviromentBuildq4'" (value)="enviromentBuild.q4 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Transporte público cerca a su casa</span>
-                <app-many-or-some  [name]="'enviromentBuildq5'" [id]="'enviromentBuildq5'" (value)="enviromentBuild.q5 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Transporte público para personas con discapacidad</span>
-                <app-many-or-some  [name]="'enviromentBuildq6'" [id]="'enviromentBuildq6'" (value)="enviromentBuild.q6 = $event"></app-many-or-some>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Parqueaderos adecuados para personas con discapacidad</span>
-                <app-many-or-some  [name]="'enviromentBuildq7'" [id]="'enviromentBuildq7'" (value)="enviromentBuild.q7 = $event"></app-many-or-some>
+            <div class="input-group mb-2" *ngFor="let question of questionsHave; let i = index">
+                <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                <app-many-or-some  [name]="'enviromentBuildq1'+question.id" [id]="'enviromentBuildq1'+question.id" (value)="setAnswer(question.id,$event)"></app-many-or-some>
             </div>
             <label for="basic-url" class="form-label fw-bold">2. De las siguientes situaciones ¿qué tanto es un problema
                 en su barrio?</label>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Tensiones entre los diferentes grupos raciales, étnicos o
-                    religiosos</span>
-                <app-problems [name]="'enviromentBuildq8'" [id]="'enviromentBuildq8'" (value)="enviromentBuild.q8 = $event"></app-problems>
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Basuras, desperdicios o botellas en la calle, en los andenes o en
-                    los jardines.</span>
-                <app-problems  [name]="'enviromentBuildq9'" [id]="'enviromentBuildq9'" (value)="enviromentBuild.q9 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Ventas o usos de drogas</span>
-                <app-problems  [name]="'enviromentBuildq10'" [id]="'enviromentBuildq10'" (value)="enviromentBuild.q10 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Abuso de alcohol en las calles y sitios públicos</span>
-                <app-problems  [name]="'enviromentBuildq11'" [id]="'enviromentBuildq11'" (value)="enviromentBuild.q11 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Pandillas</span>
-                <app-problems  [name]="'enviromentBuildq12'" [id]="'enviromentBuildq12'" (value)="enviromentBuild.q12 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Iluminación inadecuada</span>
-                <app-problems  [name]="'enviromentBuildq13'" [id]="'enviromentBuildq13'" (value)="enviromentBuild.q13 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Delincuencia - delitos</span>
-                <app-problems  [name]="'enviromentBuildq14'" [id]="'enviromentBuildq14'" (value)="enviromentBuild.q14 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Ruido excesivo</span>
-                <app-problems  [name]="'enviromentBuildq15'" [id]="'enviromentBuildq15'" (value)="enviromentBuild.q15 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Tráfico pesado</span>
-                <app-problems  [name]="'enviromentBuildq16'" [id]="'enviromentBuildq16'" (value)="enviromentBuild.q16 = $event"></app-problems> 
-            </div>
-            <div class="input-group mb-2">
-                <span class="me-3" id="basic-addon1">Casas o edificios abandonados</span>
-                <app-problems  [name]="'enviromentBuildq17'" [id]="'enviromentBuildq17'" (value)="enviromentBuild.q17 = $event"></app-problems> 
+            <div class="input-group mb-2"  *ngFor="let question of questionsProblem">
+                <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                <app-problems [name]="'enviromentBuildq8'+question.id" [id]="'enviromentBuildq8'+question.id" (value)="setAnswer(question.id,$event)"></app-problems>
             </div>
             <app-paginator></app-paginator>
 

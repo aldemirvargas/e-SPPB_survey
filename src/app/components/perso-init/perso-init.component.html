@@ -51,7 +51,7 @@
             <div class="input-group mb-2">
                 <span class="input-group-text" id="basic-addon1">Documento</span>
                 <input type="text" class="form-control" placeholder="Documento" aria-label="firstName"
-                    aria-describedby="basic-addon1" [(ngModel)]="participant.document">
+                    aria-describedby="basic-addon1" [(ngModel)]="participant.document" (keyup)="searchPatient($event)">
             </div>
             <div class="card card-body mb-2 maxContent" *ngIf="searchingPatient">
                 <button class="btn btn-outline-primary btn-sm d-flex justify-content-center mb-2"

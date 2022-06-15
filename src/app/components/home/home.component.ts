@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users.service';
-import { User } from '../../models/User';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { User } from '../../models/User';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  subMe$!: Subscription;
+  private subscription: Subscription = new Subscription();
   public user: any;
   public isLoggedIn: boolean = false;
   constructor(private router: Router, private usersService: UsersService) {}
@@ -20,9 +19,9 @@ export class HomeComponent implements OnInit {
   }
 
   onGetMe() {
-    this.subMe$ = this.usersService.me().subscribe({
+    this.subscription.add(
+      this.usersService.me().subscribe({
       next: (data) => {
-        console.log(data);
         if (data && data.id) {
           this.user = data;
           this.isLoggedIn = true;
@@ -35,10 +34,11 @@ export class HomeComponent implements OnInit {
         console.log(error);
         this.router.navigate(['/login']);
       },
-    });
+    })
+    );
   }
 
   OnDestroy(): void {
-    this.subMe$ && this.subMe$.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

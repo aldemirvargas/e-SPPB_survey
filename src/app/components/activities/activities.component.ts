@@ -2,18 +2,21 @@ import {
   Component,
   EventEmitter,
   HostListener,
+  OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
 import { Activity } from '../../models/Activity';
 import { ActivityDb } from '../../models/ActivityDb';
 import { SurveyService } from '../../services/survey.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css'],
 })
-export class ActivitiesComponent implements OnInit {
+export class ActivitiesComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   public activities: Activity[] = [];
   public allActivities: ActivityDb[] = [];
   public currentSearchInput: number = null;
@@ -40,21 +43,20 @@ export class ActivitiesComponent implements OnInit {
     });
   }
 
-  @HostListener('window:keyup', ['$event'])
   searchActivity(event: Event, inputId: number) {
-    console.log(inputId);
     this.currentSearchInput = inputId;
     let name = event.target['value'];
     if (name && name.length > 2) {
-      this.surveyService.getActivityByName(name).subscribe({
-        next: (data) => {
-          console.log(data);
-          this.allActivities = data;
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
+      this.subscription.add(
+        this.surveyService.getActivityByName(name).subscribe({
+          next: (data) => {
+            this.allActivities = data;
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        })
+      );
     }
     this.changesInModel();
   }
@@ -71,5 +73,7 @@ export class ActivitiesComponent implements OnInit {
     this.allActivities = [];
     this.changesInModel();
   }
-
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

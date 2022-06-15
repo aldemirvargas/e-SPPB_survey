@@ -5,6 +5,7 @@ import { ActivityDb } from '../models/ActivityDb';
 import { Survey } from '../models/Survey';
 import { PatientDb } from '../models/PatientDb';
 import { MedicalCenterDb } from '../models/MedicalCenterDb';
+import {QuestionsDb} from '../models/QuestionsDb';
 
 @Injectable({
   providedIn: 'root',
@@ -35,9 +36,14 @@ export class SurveyService {
     );
   }
   sendSurvey(survey: Survey) {
-    return this.http.post<Survey>(
+    return this.http.post<any>(
       `http://localhost:8000/api/v1/addSurvey`,
       survey
+    );
+  }
+  getAllQuestions() {
+    return this.http.get<QuestionsDb[]>(
+      `http://localhost:8000/api/v1/getAllQuestions`
     );
   }
 }

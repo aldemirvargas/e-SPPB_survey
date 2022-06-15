@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { Person } from '../../models/Person';
 import { SurveyService } from '../../services/survey.service';
 import * as dayjs from 'dayjs';
@@ -7,14 +7,17 @@ import { __classPrivateFieldGet } from 'tslib';
 import { DataSurveyService } from '../../services/data-survey.service';
 import { PatientDb } from '../../models/PatientDb';
 import { MedicalCenterDb } from '../../models/MedicalCenterDb';
-import { Survey } from '../../models/Survey';
+import { Subscription } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-perso-init',
   templateUrl: './perso-init.component.html',
   styleUrls: ['./perso-init.component.css'],
 })
-export class PersoInitComponent implements OnInit {
+export class PersoInitComponent implements OnInit, OnDestroy {
+  private readonly notifier: NotifierService;
+  private subscription:Subscription = new Subscription();
   public currentDate: string = dayjs().format('YYYY-MM-DD');
   public evaluators: Medical[] = [];
   public patients: PatientDb[] = [];
@@ -74,8 +77,11 @@ export class PersoInitComponent implements OnInit {
   
   constructor(
     private surveyService: SurveyService,
-    public dataSurveyService: DataSurveyService
-  ) {}
+    public dataSurveyService: DataSurveyService,
+    notifierService: NotifierService
+  ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.searchingEvaluator = false;
@@ -90,20 +96,21 @@ export class PersoInitComponent implements OnInit {
 
   }
 
-  @HostListener('window:keyup', ['$event'])
+  
   searchEvaluator(event: Event) {
     let value = event.target['value'];
     if (value && value.length > 2) {
       this.searchingEvaluator = true;
+      this.subscription.add(
       this.surveyService.getMedicalByDocument(value).subscribe({
         next: (response) => {
-          console.log(response);
           this.evaluators = response;
         },
         error: (error) => {
           console.log(error);
         },
-      });
+      })
+      );
     } else {
       this.evaluators = [];
     }
@@ -119,20 +126,21 @@ export class PersoInitComponent implements OnInit {
     this.evaluators = [];
     this.searchingEvaluator = false;
   }
-  @HostListener('window:keyup', ['$event'])
+  
   searchPatient(event: Event) {
     let value = event.target['value'];
     if (value && value.length > 2) {
       this.searchingPatient = true;
+      this.subscription.add(
       this.surveyService.getPatientByName(value).subscribe({
         next: (response) => {
-          console.log(response);
           this.patients = response;
         },
         error: (error) => {
           console.log(error);
         },
-      });
+      })
+      );
     } else {
       this.patients = [];
     }
@@ -162,12 +170,12 @@ export class PersoInitComponent implements OnInit {
     this.getMedicalCenter(patient.id_medical_center);
 
     this.patients = [];
-    this.searchingEvaluator = false;
+    this.searchingPatient = false;
   }
   getMedicalCenter(id: number) {
+    this.subscription.add(
     this.surveyService.getMedicalCenterById(id).subscribe({
       next: (response) => {
-        console.log(response);
         this.medicalCenter.id = response.id;
         this.medicalCenter.medical_center_name = response.medical_center_name;
         this.medicalCenter.medical_center_city = response.medical_center_city;
@@ -180,17 +188,20 @@ export class PersoInitComponent implements OnInit {
       error: (error) => {
         console.log(error);
       },
-    });
+    })
+    );
   }
 
   averQuePasa() {
-    console.log(this.dataSurveyService.surveyFinal);
-    console.log({
-      medical: this.currentEvaluator,
-      patient: this.participant,
-      companion: this.companion,
-      date: this.currentDate,
-      medicalCenter: this.medicalCenter,
+    this.notifier.show({
+      type: 'error',
+      message: 'Formulario # agregado correctamente',
+      id: 'id', 
     });
+    console.log(this.dataSurveyService.surveyFinal);
+    
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

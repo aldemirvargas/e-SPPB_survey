@@ -4,107 +4,23 @@
             <label for="basic-url" class="form-label fw-bold">Estas preguntas se refieren a sus actividades en el último
                 mes solamente.</label>
             <label class="mt-2 mb-2"></label>
-            <div class="card card-body mb-2">
+            <div class="card card-body mb-2" *ngFor="let question of questionsFrecuency">
                 <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
                     movido:</label>
                 <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿En otros lugares de la casa, diferentes a la habitación donde
-                        duerme?</span>
-                    <app-yes-not [name]="'livingSpaceq1'" [id]="'livingSpaceq1'" (value)="livingSpace.q1 = $event"></app-yes-not>
+                    <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                    <app-yes-not [name]="'livingSpaceq1'+question.id" [id]="'livingSpaceq1'+question.id" (value)="setAnswer('answer', question.id,$event)"></app-yes-not>
                 </div>
                 <div class="input-group mb-2">
                     <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq2'" [id]="'livingSpaceq2'" (value)="livingSpace.q2 = $event"></app-step-by-week>
+                    <app-step-by-week [name]="'livingSpaceq2'+question.id" [id]="'livingSpaceq2'+question.id" (value)="setAnswer('frequency', question.id,$event)"></app-step-by-week>
                 </div>
                 <div class="input-group mb-2">
                     <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq3'" [id]="'livingSpaceq3'" (value)="livingSpace.q3 = $event"></app-help-of-other>
+                    <app-help-of-other [name]="'livingSpaceq3'+question.id" [id]="'livingSpaceq3'+question.id" (value)="setAnswer('independence', question.id,$event)"></app-help-of-other>
                 </div>
             </div>
-            <div class="card card-body mb-2">
-                <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
-                    movido:</label>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">En su área fuera de su casa como su terraza o patio, el pasillo
-                        de su edificio, garaje, en su propio jardín o en la entrada de su casa.</span>
-                    <app-yes-not [name]="'livingSpaceq4'" [id]="'livingSpaceq4'" (value)="livingSpace.q4 = $event"></app-yes-not>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq5'" [id]="'livingSpaceq5'" (value)="livingSpace.q5 = $event"></app-step-by-week>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq6'" [id]="'livingSpaceq6'" (value)="livingSpace.q6 = $event"></app-help-of-other>
-                </div>
-            </div>
-            <div class="card card-body mb-2">
-                <label for="basic-url" class="form-label fw-bold">En su área fuera de su casa como su terraza o patio,
-                    el pasillo de su edificio, garaje, en su propio jardín o en la entrada de su casa.</label>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">En sitios de su vecindario que no sean su propio jardín o
-                        edificio de apartamentos</span>
-                    <app-yes-not [name]="'livingSpaceq7'" [id]="'livingSpaceq7'" (value)="livingSpace.q7 = $event"></app-yes-not>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq8'" [id]="'livingSpaceq8'" (value)="livingSpace.q8 = $event"></app-step-by-week>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq9'" [id]="'livingSpaceq9'" (value)="livingSpace.q9 = $event"></app-help-of-other>
-                </div>
-            </div>
-            <div class="card card-body mb-2">
-                <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
-                    movido:</label>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">Sitios fuera de su vecindario que no sean su propio jardín o
-                        edificio de apartamentos</span>
-                    <app-yes-not [name]="'livingSpaceq10'" [id]="'livingSpaceq10'" (value)="livingSpace.q10 = $event"></app-yes-not>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq11'" [id]="'livingSpaceq11'" (value)="livingSpace.q11 = $event"></app-step-by-week>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq12'" [id]="'livingSpaceq12'" (value)="livingSpace.q12 = $event"></app-help-of-other>
-                </div>
-            </div>
-            <div class="card card-body mb-2">
-                <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
-                    movido:</label>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">Sitios de fuera de su vecindario (otros barrios), pero dentro
-                        de la ciudad.</span>
-                    <app-yes-not [name]="'livingSpaceq13'" [id]="'livingSpaceq13'" (value)="livingSpace.q13 = $event"></app-yes-not>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq14'" [id]="'livingSpaceq14'" (value)="livingSpace.q14 = $event"></app-step-by-week>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq15'" [id]="'livingSpaceq15'" (value)="livingSpace.q15 = $event"></app-help-of-other>
-                </div>
-            </div>
-            <div class="card card-body mb-2">
-                <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
-                    movido:</label>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">Sitios de fuera de su ciudad.</span>
-                    <app-yes-not [name]="'livingSpaceq16'" [id]="'livingSpaceq16'" (value)="livingSpace.q16 = $event"></app-yes-not>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
-                    <app-step-by-week [name]="'livingSpaceq17'" [id]="'livingSpaceq17'" (value)="livingSpace.q17 = $event"></app-step-by-week>
-                </div>
-                <div class="input-group mb-2">
-                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
-                    <app-help-of-other [name]="'livingSpaceq18'" [id]="'livingSpaceq18'" (value)="livingSpace.q18 = $event"></app-help-of-other>
-                </div>
-            </div>
+            
             <app-paginator></app-paginator>
 
 

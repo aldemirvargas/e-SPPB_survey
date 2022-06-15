@@ -50,17 +50,17 @@
                         <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot1"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestFoot1"
-                            (click)="setAnswerBalance('balanceTestFoot',1)">Mantiene 10 seg</label>
+                            (click)="setAnswerBalance('balanceTestFoot',1);setAnswerBalanceString('balanceTestFoot','Mantiene 10s')">Mantiene 10 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot2"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestFoot2"
-                            (click)="setAnswerBalance('balanceTestFoot',0)">No mantiene 10 seg</label>
+                            (click)="setAnswerBalance('balanceTestFoot',0);setAnswerBalanceString('balanceTestFoot','No mantiene 10s')">No mantiene 10 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestFoot" id="balanceTestFoot3"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestFoot3"
-                            (click)="setAnswerBalance('balanceTestFoot',0)">No lo intenta</label>
+                            (click)="setAnswerBalance('balanceTestFoot',0);setAnswerBalanceString('balanceTestFoot','No lo intenta')">No lo intenta</label>
 
                     </div>
                 </div>
@@ -110,17 +110,17 @@
                         <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem1"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestSemitamdem1"
-                            (click)="setAnswerBalance('balanceTestSemitamdem',1)">Mantiene 10 seg</label>
+                            (click)="setAnswerBalance('balanceTestSemitamdem',1);setAnswerBalanceString('balanceTestSemitamdem','Mantiene 10s')">Mantiene 10 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem2"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestSemitamdem2"
-                            (click)="setAnswerBalance('balanceTestSemitamdem',0)">No mantiene 10 seg</label>
+                            (click)="setAnswerBalance('balanceTestSemitamdem',0);setAnswerBalanceString('balanceTestSemitamdem','No mantiene 10s')">No mantiene 10 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestSemitamdem" id="balanceTestSemitamdem3"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestSemitamdem3"
-                            (click)="setAnswerBalance('balanceTestSemitamdem',0)">No lo intenta</label>
+                            (click)="setAnswerBalance('balanceTestSemitamdem',0);setAnswerBalanceString('balanceTestSemitamdem','No lo intenta')">No lo intenta</label>
 
                     </div>
                 </div>
@@ -170,22 +170,22 @@
                         <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem1"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestTamdem1"
-                            (click)="setAnswerBalance('balanceTestTamdem',2)">Mantiene 10 seg</label>
+                            (click)="setAnswerBalance('balanceTestTamdem',2);setAnswerBalanceString('balanceTestTamdem','Mantiene 10s')">Mantiene 10 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem2"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestTamdem2"
-                            (click)="setAnswerBalance('balanceTestTamdem',1)">Mantiene de 3 a 9.99 seg</label>
+                            (click)="setAnswerBalance('balanceTestTamdem',1);setAnswerBalanceString('balanceTestTamdem','Mantiene de 3s a 9.99s')">Mantiene de 3 a 9.99 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem3"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestTamdem3"
-                            (click)="setAnswerBalance('balanceTestTamdem',0)">Mantiene &lt; 3 seg</label>
+                            (click)="setAnswerBalance('balanceTestTamdem',0);setAnswerBalanceString('balanceTestTamdem','Mantiene < 3s')">Mantiene &lt; 3 seg</label>
 
                         <input type="radio" class="btn-check" name="balanceTestTamdem" id="balanceTestTamdem4"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="balanceTestTamdem4"
-                            (click)="setAnswerBalance('balanceTestTamdem',0)">No lo intenta</label>
+                            (click)="setAnswerBalance('balanceTestTamdem',0);setAnswerBalanceString('balanceTestTamdem','No lo intenta')">No lo intenta</label>
 
                     </div>
                 </div>

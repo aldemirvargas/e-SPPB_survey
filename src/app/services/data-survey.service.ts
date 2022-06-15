@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Survey } from '../models/Survey';
+import {QuestionsDb} from '../models/QuestionsDb';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -21,6 +23,8 @@ export class DataSurveyService {
     enviromentBuild: null,
     pshysicalPerformance: null,
   };
+
+  public allQuestions: QuestionsDb[] = [];
 
   constructor() {}
 

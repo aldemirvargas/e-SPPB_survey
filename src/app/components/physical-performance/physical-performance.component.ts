@@ -26,18 +26,21 @@ export class PhysicalPerformanceComponent implements OnInit {
       duration: null,
       doNotTry: false,
       doNotTryComment: null,
+      answer: null,
     },
     balanceTestSemitamdem: {
       points: null,
       duration: null,
       doNotTry: false,
       doNotTryComment: null,
+      answer: null,
     },
     balanceTestTamdem: {
       points: null,
       duration: null,
       doNotTry: false,
       doNotTryComment: null,
+      answer: null,
     },
     balanceTestTotalPoints: null,
     speedtestA: {
@@ -96,11 +99,17 @@ export class PhysicalPerformanceComponent implements OnInit {
     this.pshysicalPerformance[key].points = value;
     this.recalculateTotalPoints();
   }
+  setAnswerBalanceString(key: string, value: string) {
+    this.pshysicalPerformance[key].answer = value;
+  }
   setAnswerBalanceTry(key: string, value: string) {
     this.pshysicalPerformance[key].doNotTryComment = value;
   }
   setAnswerSpeedtest(key: string, value: string) {
     this.pshysicalPerformance[key].doNotTryComment = value;
+  }
+  setAnswerSpeedtestString(key: string, value: string) {
+    this.pshysicalPerformance[key].answer = value;
   }
   recalculateTotalPoints() {
     this.pshysicalPerformance.balanceTestTotalPoints =
