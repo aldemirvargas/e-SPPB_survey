@@ -1,0 +1,214 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Fecha de nacimiento del anciano</span>
+                <input type="Date" class="form-control" placeholder="Fecha de nacimiento" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="demographicInit.dateOfBirth">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Edad</span>
+                <input type="number" class="form-control" placeholder="Edad" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="demographicInit.age">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">Sexo</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="sex" id="sexM" autocomplete="off" >
+                    <label class="btn btn-outline-primary" for="sexM" (click)="setAnswer('sex','M')">Masculino</label>
+
+                    <input type="radio" class="btn-check" name="sex" id="sexF" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="sexF" (click)="setAnswer('sex','F')">Femenino</label>
+
+                    <input type="radio" class="btn-check" name="sex" id="sexX" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="sexX" (click)="setAnswer('sex','X')">No Binario</label>
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">Ocupación</span>
+                <input type="text" class="form-control" placeholder="Principal" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="demographicInit.principalOcupation">
+                <input type="text" class="form-control" placeholder="Actual" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="demographicInit.secondaryOcupation">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">¿Cuál es el nombre de EPS?</span>
+                <input type="text" class="form-control" placeholder="EPS" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="demographicInit.eps">
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Cuál es el tipo de afiliación al Sistema de seguridad social?</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="socialSafety" id="socialSafetysubsidiary" autocomplete="off" >
+                    <label class="btn btn-outline-primary" for="socialSafetysubsidiary" (click)="setAnswer('socialSafety','subsidiary')">Subsidiado </label>
+
+                    <input type="radio" class="btn-check" name="socialSafety" id="socialSafetycontributive" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="socialSafetycontributive" (click)="setAnswer('socialSafety','contributive')">Contributivo</label>
+
+                    <input type="radio" class="btn-check" name="socialSafety" id="socialSafetylinked" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="socialSafetylinked" (click)="setAnswer('socialSafety','linked')">Vinculado </label>
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Cuál es su estado civil?</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="civilStatus" id="civilStatussingle" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="civilStatussingle" (click)="setAnswer('civilStatus','single')">Soltero  </label>
+
+                    <input type="radio" class="btn-check" name="civilStatus" id="civilStatusmarried" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="civilStatusmarried" (click)="setAnswer('civilStatus','married')">Casado/Unión libre</label>
+
+                    <input type="radio" class="btn-check" name="civilStatus" id="civilStatuswidower" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="civilStatuswidower" (click)="setAnswer('civilStatus','widower')">Viudo (a)  </label>
+
+                    <input type="radio" class="btn-check" name="civilStatus" id="civilStatusseparate" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="civilStatusseparate" (click)="setAnswer('civilStatus','separate')">Separado/Divorciado </label>
+
+                    <input type="radio" class="btn-check" name="civilStatus" id="civilStatusreligious" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="civilStatusreligious" (click)="setAnswer('civilStatus','religious')">Religioso </label>
+                    
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">Convivientes</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="cohabitants" id="cohabitantslivesAlone" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cohabitantslivesAlone" (click)="setAnswer('cohabitants','livesAlone')">Vive solo  </label>
+
+                    <input type="radio" class="btn-check" name="cohabitants" id="cohabitantslivesWithOthers" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cohabitantslivesWithOthers" (click)="setAnswer('cohabitants','livesWithOthers')">Vive con otros</label>
+
+                    <input type="radio" class="btn-check" name="cohabitants" id="cohabitantsresidence" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cohabitantsresidence" (click)="setAnswer('cohabitants','residence')">Larga estancia Hogar - residencia</label>
+
+                    <input type="radio" class="btn-check" name="cohabitants" id="cohabitantsother" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="cohabitantsother" (click)="setAnswer('cohabitants','other')">Otro </label>
+                    
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">¿Cuántos años de educación completa tuvo usted?</span>
+                <input type="number" class="form-control" placeholder="Edad" aria-label="Username"
+                aria-describedby="basic-addon1" [(ngModel)]="demographicInit.ageOfScholarity">
+                <span class="input-group-text" id="basic-addon1">años</span>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Cuál fue el mas alto nivel educativo que tuvo?  </span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryilliterate" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryilliterate" (click)="setAnswer('maxLevelScholary','illiterate')">Analfabeta  </label>
+
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryreadAndWrite" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryreadAndWrite" (click)="setAnswer('maxLevelScholary','readAndWrite')">Solamente aprendió a leer y escribir</label>
+
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryincompletePrimary" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryincompletePrimary" (click)="setAnswer('maxLevelScholary','incompletePrimary')">Primaria incompleta</label>
+
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryprimary" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryprimary" (click)="setAnswer('maxLevelScholary','primary')">Primaria completa  </label>
+                    
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryincompleteSecondary" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryincompleteSecondary" (click)="setAnswer('maxLevelScholary','incompleteSecondary')">Secundaria incompleta  </label>
+                    
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholarysecondary" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholarysecondary" (click)="setAnswer('maxLevelScholary','secondary')">Secundaria completa</label>
+                    
+                    <input type="radio" class="btn-check" name="maxLevelScholary" id="maxLevelScholaryuniversity" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="maxLevelScholaryuniversity" (click)="setAnswer('maxLevelScholary','university')">Universidad o equivalente  </label>
+                    
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Depende económicamente de su familia?</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="isDependentOfFamily" id="isDependentOfFamilyyes" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="isDependentOfFamilyyes" (click)="setAnswer('isDependentOfFamily',true)">Si  </label>
+
+                    <input type="radio" class="btn-check" name="isDependentOfFamily" id="isDependentOfFamilynot" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="isDependentOfFamilynot" (click)="setAnswer('isDependentOfFamily',false)">No</label>
+
+                    
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿De dónde provienen sus ingresos actuales?</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomecurrentWork" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomecurrentWork" (click)="setAnswer('whereIncome','currentWork')">Trabajo actual  </label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomepension" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomepension" (click)="setAnswer('whereIncome','pension')">Retiro o pensión</label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomehelpOfFamilyAboard" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomehelpOfFamilyAboard" (click)="setAnswer('whereIncome','helpOfFamilyAboard')">Ayuda de familiares (Extranjero)</label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomehelpFamilyColombia" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomehelpFamilyColombia" (click)="setAnswer('whereIncome','helpFamilyColombia')">Ayuda de familiares (Colombia)  </label>
+                    
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomeincome" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomeincome" (click)="setAnswer('whereIncome','income')">Rentas</label>
+                    
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomesubsidy" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomesubsidy" (click)="setAnswer('whereIncome','subsidy')">Subsidios de gobierno</label>
+                    
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomeother" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomeother" (click)="setAnswer('whereIncome','other')">Otro</label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomenoIncome" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomenoIncome" (click)="setAnswer('whereIncome','noIncome')">No recibe ingresos</label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomenotKnow" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomenotKnow" (click)="setAnswer('whereIncome','notKnow')">No sabe</label>
+
+                    <input type="radio" class="btn-check" name="whereIncome" id="whereIncomenotAnswer" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whereIncomenotAnswer" (click)="setAnswer('whereIncome','notAnswer')">No responde</label>
+
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Cuál es su Ingreso mensual? (en salarios mínimos 737.717) </span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="whichIncome" id="whichIncomelessThatOne" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whichIncomelessThatOne" (click)="setAnswer('whichIncome','lessThatOne')">Menos de uno  </label>
+
+                    <input type="radio" class="btn-check" name="whichIncome" id="whichIncomeone" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whichIncomeone" (click)="setAnswer('whichIncome','one')">Uno</label>
+
+                    <input type="radio" class="btn-check" name="whichIncome" id="whichIncomebetweenOneAndThree" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whichIncomebetweenOneAndThree" (click)="setAnswer('whichIncome','betweenOneAndThree')">Entre uno y tres</label>
+
+                    <input type="radio" class="btn-check" name="whichIncome" id="whichIncomeThreeOrMore" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="whichIncomeThreeOrMore" (click)="setAnswer('whichIncome','ThreeOrMore')">Más de tres</label>
+                    
+                </div>
+            </div>
+
+            <div class="input-group mb-2">
+                <span class="input-group-text me-1" id="basic-addon1">¿Cuál es su Estrato de la residencia Urbana?</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="strat" id="strat1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat1" (click)="setAnswer('strat',1)">1</label>
+
+                    <input type="radio" class="btn-check" name="strat" id="strat2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat2" (click)="setAnswer('strat',2)">2</label>
+
+                    <input type="radio" class="btn-check" name="strat" id="strat3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat3" (click)="setAnswer('strat',3)">3</label>
+
+                    <input type="radio" class="btn-check" name="strat" id="strat4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat4" (click)="setAnswer('strat',4)">4</label>
+
+                    <input type="radio" class="btn-check" name="strat" id="strat5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat5" (click)="setAnswer('strat',5)">5</label>
+
+                    <input type="radio" class="btn-check" name="strat" id="strat6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="strat6" (click)="setAnswer('strat',6)">6</label>
+                    
+                </div>
+            </div>
+            <app-paginator></app-paginator>
+
+
+        </div>
+    </div>
+</div>

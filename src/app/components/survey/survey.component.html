@@ -1,0 +1,110 @@
+<ul class="nav nav-tabs" id="surveyTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="personal-data-tab" data-bs-toggle="tab" data-bs-target="#personal-data"
+            type="button" role="tab" aria-controls="personal-data" aria-selected="true">Datos personales</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="demographic-aspects-tab" data-bs-toggle="tab" data-bs-target="#demographic-aspects"
+            type="button" role="tab" aria-controls="demographic-aspects" aria-selected="false">I. ASPECTOS DEMOGRÁFICOS
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="physical-activity-tab" data-bs-toggle="tab" data-bs-target="#physical-activity"
+            type="button" role="tab" aria-controls="physical-activity" aria-selected="false">II. ACTIVIDAD FISICA
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="living-space-tab" data-bs-toggle="tab" data-bs-target="#living-space"
+            type="button" role="tab" aria-controls="living-space" aria-selected="false">III. ESPACIO DE VIDA
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="physical-performance-tab" data-bs-toggle="tab" data-bs-target="#physical-performance"
+            type="button" role="tab" aria-controls="physical-performance" aria-selected="false">IV. MEDIDAS BASADAS EN LA EJECUCIÓN FÍSICA
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="electronic-devices-tab" data-bs-toggle="tab" data-bs-target="#electronic-devices"
+            type="button" role="tab" aria-controls="electronic-devices" aria-selected="false">V. DISPOSITIVOS ELECTRÓNICOS
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="agree-tab" data-bs-toggle="tab" data-bs-target="#agree"
+            type="button" role="tab" aria-controls="agree" aria-selected="false">Consentimiento
+        </button>
+    </li>
+</ul>
+<div class="tab-content" id="surveyTabsContent">
+    <div class="tab-pane fade show active mt-2" id="personal-data" role="tabpanel" aria-labelledby="personal-data-tab">
+        <ul class="nav nav-tabs" id="tabsPersonalData" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="perso-init-tab" data-bs-toggle="tab" data-bs-target="#perso-init" type="button" role="tab" aria-controls="perso-init" aria-selected="true">Inicio </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="minimental-test-tab" data-bs-toggle="tab" data-bs-target="#minimental-test" type="button" role="tab" aria-controls="minimental-test" aria-selected="false">TEST MINIMENTAL</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="tabsPersonalDataContent">
+            <div class="tab-pane fade show active" id="perso-init" role="tabpanel" aria-labelledby="perso-init-tab">
+                <app-perso-init></app-perso-init>
+            </div>
+            <div class="tab-pane fade" id="minimental-test" role="tabpanel" aria-labelledby="minimental-test-tab">
+                <app-minimental-test></app-minimental-test>
+            </div>
+          </div>
+    </div>
+    <div class="tab-pane fade  mt-2" id="demographic-aspects" role="tabpanel" aria-labelledby="demographic-aspects-tab">
+        <ul class="nav nav-tabs" id="tabsDemographicAspects" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="demographic-init-tab" data-bs-toggle="tab" data-bs-target="#demographic-init" type="button" role="tab" aria-controls="demographic-init" aria-selected="true">Inicio </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="demographic-cronic-conditions-tab" data-bs-toggle="tab" data-bs-target="#demographic-cronic-conditions" type="button" role="tab" aria-controls="demographic-cronic-conditions" aria-selected="false">Condiciones Crónicas:</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="habits-tab" data-bs-toggle="tab" data-bs-target="#habits" type="button" role="tab" aria-controls="habits" aria-selected="false">19. HÀBITOS</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="tabsDemographicAspectsContent">
+            <div class="tab-pane fade show active" id="demographic-init" role="tabpanel" aria-labelledby="demographic-init-tab">
+                <app-demographic-init></app-demographic-init>
+            </div>
+            <div class="tab-pane fade" id="demographic-cronic-conditions" role="tabpanel" aria-labelledby="demographic-cronic-conditions-tab">
+                <app-demographic-cronic-conditions></app-demographic-cronic-conditions>
+            </div>
+            <div class="tab-pane fade" id="habits" role="tabpanel" aria-labelledby="habits-tab">
+                <app-habits></app-habits>
+            </div>
+          </div>
+    </div>
+    <div class="tab-pane fade  mt-2" id="physical-activity" role="tabpanel" aria-labelledby="physical-activity-tab">
+        <app-physical-activity></app-physical-activity>
+    </div>
+    <div class="tab-pane fade  mt-2" id="living-space" role="tabpanel" aria-labelledby="living-space-tab">
+        <ul class="nav nav-tabs" id="tabsLivinSpace" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="living-space-init-tab" data-bs-toggle="tab" data-bs-target="#living-space-init" type="button" role="tab" aria-controls="living-space-init" aria-selected="true">Inicio </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="enviroment-build-tab" data-bs-toggle="tab" data-bs-target="#enviroment-build" type="button" role="tab" aria-controls="enviroment-build" aria-selected="false">22. ENTORNO CONSTRUIDO </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="tabsLivinSpaceContent">
+            <div class="tab-pane fade show active" id="living-space-init" role="tabpanel" aria-labelledby="living-space-init-tab">
+                <app-living-space-init></app-living-space-init>
+            </div>
+            <div class="tab-pane fade" id="enviroment-build" role="tabpanel" aria-labelledby="enviroment-build-tab">
+                <app-enviroment-build></app-enviroment-build>
+            </div>
+          </div>
+    </div>
+    <div class="tab-pane fade  mt-2" id="physical-performance" role="tabpanel" aria-labelledby="physical-performance-tab">
+        <app-physical-performance></app-physical-performance>
+    </div>
+    <div class="tab-pane fade  mt-2" id="electronic-devices" role="tabpanel" aria-labelledby="electronic-devices-tab">
+        <app-electronic-devices></app-electronic-devices>
+    </div>
+    <div class="tab-pane fade  mt-2" id="agree" role="tabpanel" aria-labelledby="agree-tab">
+        <app-agree></app-agree>
+    </div>
+</div>

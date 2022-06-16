@@ -1,0 +1,29 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <label for="basic-url" class="form-label fw-bold">Estas preguntas se refieren a sus actividades en el último
+                mes solamente.</label>
+            <label class="mt-2 mb-2"></label>
+            <div class="card card-body mb-2" *ngFor="let question of questionsFrecuency">
+                <label for="basic-url" class="form-label fw-bold">Durante las últimas 4 semanas (último mes) se ha
+                    movido:</label>
+                <div class="input-group mb-2">
+                    <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                    <app-yes-not [name]="'livingSpaceq1'+question.id" [id]="'livingSpaceq1'+question.id" (value)="setAnswer('answer', question.id,$event)"></app-yes-not>
+                </div>
+                <div class="input-group mb-2">
+                    <span class="me-3" id="basic-addon1">¿Cuántas veces?</span>
+                    <app-step-by-week [name]="'livingSpaceq2'+question.id" [id]="'livingSpaceq2'+question.id" (value)="setAnswer('frequency', question.id,$event)"></app-step-by-week>
+                </div>
+                <div class="input-group mb-2">
+                    <span class="me-3" id="basic-addon1">¿Ha usado ayudas o equipo?</span>
+                    <app-help-of-other [name]="'livingSpaceq3'+question.id" [id]="'livingSpaceq3'+question.id" (value)="setAnswer('independence', question.id,$event)"></app-help-of-other>
+                </div>
+            </div>
+            
+            <app-paginator></app-paginator>
+
+
+        </div>
+    </div>
+</div>

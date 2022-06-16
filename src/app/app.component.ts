@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isLoggedIn: boolean = false;
   title = 'e-SPPB_survey';
 }

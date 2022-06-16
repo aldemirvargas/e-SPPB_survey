@@ -1,0 +1,48 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <label for="basic-url" class="form-label fw-bold">Tabaco</label>
+            <div class="input-group mb-2">
+
+                <span class="me-3" id="basic-addon1">Consume cigarrillos </span>
+                <app-yes-not [name]="'q1'" [id]="'q1'" (value)="habits.q1 = $event"></app-yes-not>
+            </div>
+            <div class="input-group mb-2">
+
+                <span class="input-group-text" id="basic-addon1">Paquetes/año (número de cigarrillos por día en el
+                    último mes)</span>
+                <input type="number" class="form-control" placeholder="#" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="habits.q2">
+            </div>
+            <label for="basic-url" class="form-label fw-bold">Alcohol</label>
+            <div class="input-group mb-2">
+
+                <span class="me-3" id="basic-addon1">Consumió alcohol en el último mes</span>
+                <app-yes-not [name]="'q3'" [id]="'q3'" (value)="habits.q3 = $event"></app-yes-not>
+            </div>
+            <div class="input-group mb-2">
+
+                <span class="me-3" id="basic-addon1">Menos de 5 tragos en la misma ocasión una vez en el
+                    último mes </span>
+                <app-yes-not [name]="'q4'" [id]="'q4'" (value)="habits.q4 = $event"></app-yes-not>
+            </div>
+            <div class="input-group mb-2">
+
+                <span class="me-3" id="basic-addon1">Mas de cinco tragos en la misma ocasión al menos una
+                    vez en el último mes </span>
+                <app-yes-not [name]="'q5'" [id]="'q5'" (value)="habits.q5 = $event"></app-yes-not>
+            </div>
+            <div class="input-group mb-2">
+
+                <span class="me-3" id="basic-addon1">5 tragos o más en la misma ocasión por 5 o más días en
+                    el último mes </span>
+                <app-yes-not [name]="'q6'" [id]="'q6'" (value)="habits.q6 = $event"></app-yes-not>
+            </div>
+            <app-paginator></app-paginator>
+
+
+
+
+        </div>
+    </div>
+</div>

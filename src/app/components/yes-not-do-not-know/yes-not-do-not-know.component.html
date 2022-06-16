@@ -1,0 +1,14 @@
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="yes-not-{{name}}" id="yes-not-{{id}}-optionye-s" autocomplete="off">
+    <label class="btn btn-outline-primary" for="yes-not-{{id}}-optionye-s" (click)="setAnswer('yes')">SI</label>
+
+    <input type="radio" class="btn-check" name="yes-not-{{name}}" id="yes-not-{{id}}-option-not" autocomplete="off">
+    <label class="btn btn-outline-primary" for="yes-not-{{id}}-option-not" (click)="setAnswer('not')">NO</label>
+
+    <input type="radio" class="btn-check" name="yes-not-{{name}}" id="yes-not-{{id}}-optionnot-know" autocomplete="off">
+    <label class="btn btn-outline-primary" for="yes-not-{{id}}-optionnot-know" (click)="setAnswer('do not know')">No sabe</label>
+
+    <input type="radio" class="btn-check" name="yes-not-{{name}}" id="yes-not-{{id}}-option-not-answer" autocomplete="off">
+    <label class="btn btn-outline-primary" for="yes-not-{{id}}-option-not-answer" (click)="setAnswer('does not answer')">No responde</label>
+
+</div>
