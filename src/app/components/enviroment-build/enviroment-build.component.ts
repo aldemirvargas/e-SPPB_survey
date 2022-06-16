@@ -3,6 +3,7 @@ import { DataSurveyService } from '../../services/data-survey.service';
 import { QuestionsDb } from '../../models/QuestionsDb';
 import { SurveyService } from '../../services/survey.service';
 import { Subscription } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-enviroment-build',
@@ -14,10 +15,14 @@ export class EnviromentBuildComponent implements OnInit, OnDestroy {
   public questionsHave: QuestionsDb[] = [];
   public questionsProblem: QuestionsDb[] = [];
   public enviromentBuild: any = [];
+  private readonly notifier: NotifierService;
   constructor(
     public dataSurveyService: DataSurveyService,
-    private surveyService: SurveyService
-  ) {}
+    private surveyService: SurveyService,
+    notifierService: NotifierService
+  ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.dataSurveyService.surveyFinal.enviromentBuild = this.enviromentBuild;
@@ -27,8 +32,11 @@ export class EnviromentBuildComponent implements OnInit, OnDestroy {
         this.dataSurveyService.allQuestions = data;
         this.buildObject();
       },
-      error: (err) => {
-        console.log(err);
+      error: (error) => {
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
       },
     })
     );

@@ -107,7 +107,10 @@ export class PersoInitComponent implements OnInit, OnDestroy {
           this.evaluators = response;
         },
         error: (error) => {
-          console.log(error);
+          this.notifier.show({
+            type: 'error',
+            message: error.error.message,
+          });
         },
       })
       );
@@ -137,7 +140,10 @@ export class PersoInitComponent implements OnInit, OnDestroy {
           this.patients = response;
         },
         error: (error) => {
-          console.log(error);
+          this.notifier.show({
+            type: 'error',
+            message: error.error.message,
+          });
         },
       })
       );
@@ -186,21 +192,15 @@ export class PersoInitComponent implements OnInit, OnDestroy {
 
       },
       error: (error) => {
-        console.log(error);
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
       },
     })
     );
   }
 
-  averQuePasa() {
-    this.notifier.show({
-      type: 'error',
-      message: 'Formulario # agregado correctamente',
-      id: 'id', 
-    });
-    console.log(this.dataSurveyService.surveyFinal);
-    
-  }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

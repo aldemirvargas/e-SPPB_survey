@@ -6,6 +6,7 @@ import { Survey } from '../models/Survey';
 import { PatientDb } from '../models/PatientDb';
 import { MedicalCenterDb } from '../models/MedicalCenterDb';
 import {QuestionsDb} from '../models/QuestionsDb';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,35 +16,35 @@ export class SurveyService {
 
   getMedicalByDocument(document: number) {
     return this.http.get<Medical[]>(
-      `http://localhost:8000/api/v1/medical/${document}`
+      `${environment.apiUrl}/v1/medical/${document}`
     );
   }
 
   getActivityByName(name: string) {
     return this.http.get<ActivityDb[]>(
-      `http://localhost:8000/api/v1/activity/${name}`
+      `${environment.apiUrl}/v1/activity/${name}`
     );
   }
   getPatientByName(name: string) {
     return this.http.get<PatientDb[]>(
-      `http://localhost:8000/api/v1/patient/${name}`,
+      `${environment.apiUrl}/v1/patient/${name}`,
       
     );
   }
   getMedicalCenterById(id: number) {
     return this.http.get<MedicalCenterDb>(
-      `http://localhost:8000/api/v1/medicalCenterById/${id}`,
+      `${environment.apiUrl}/v1/medicalCenterById/${id}`,
     );
   }
   sendSurvey(survey: Survey) {
     return this.http.post<any>(
-      `http://localhost:8000/api/v1/addSurvey`,
+      `${environment.apiUrl}/v1/addSurvey`,
       survey
     );
   }
   getAllQuestions() {
     return this.http.get<QuestionsDb[]>(
-      `http://localhost:8000/api/v1/getAllQuestions`
+      `${environment.apiUrl}/v1/getAllQuestions`
     );
   }
 }

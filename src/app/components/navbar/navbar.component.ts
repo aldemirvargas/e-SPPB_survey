@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import { NotifierService } from 'angular-notifier';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,19 +11,27 @@ import { UsersService } from '../../services/users.service';
 export class NavbarComponent implements OnInit, OnDestroy {
   @Input() userLogged: any;
   subLogout$!: Subscription;
-  constructor(private router: Router, private usersService: UsersService) {}
+  private readonly notifier: NotifierService;
+  constructor(
+    private router: Router,
+     private usersService: UsersService,
+     notifierService: NotifierService
+    ) {
+      this.notifier = notifierService;
+    }
 
   ngOnInit(): void {}
   onLogout() {
-    console.log('logout');
     this.subLogout$ = this.usersService.logout().subscribe({
       next: (response) => {
-        console.log(response);
         sessionStorage.removeItem('token');
         this.router.navigate(['/login']);
       },
       error: (error) => {
-        console.log(error);
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
       },
     });
   }

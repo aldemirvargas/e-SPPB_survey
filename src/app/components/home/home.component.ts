@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,14 @@ export class HomeComponent implements OnInit {
   private subscription: Subscription = new Subscription();
   public user: any;
   public isLoggedIn: boolean = false;
-  constructor(private router: Router, private usersService: UsersService) {}
+  private readonly notifier: NotifierService;
+  constructor(
+    private router: Router,
+     private usersService: UsersService,
+     notifierService: NotifierService
+     ) {
+      this.notifier = notifierService;
+     }
 
   ngOnInit(): void {
     this.onGetMe();
@@ -31,7 +39,10 @@ export class HomeComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.log(error);
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
         this.router.navigate(['/login']);
       },
     })

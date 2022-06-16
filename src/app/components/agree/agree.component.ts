@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataSurveyService } from '../../services/data-survey.service';
 import { SurveyService } from '../../services/survey.service';
@@ -29,6 +29,7 @@ export class AgreeComponent implements OnInit, OnDestroy {
           next: (data) => {
             const { id } = data.data;
             if (id) {
+              this.clearForm();
               this.notifier.show({
                 type: 'success',
                 message: 'Formulario #' + id + ' agregado correctamente',
@@ -42,7 +43,6 @@ export class AgreeComponent implements OnInit, OnDestroy {
             }
           },
           error: (err) => {
-            console.log(err);
             this.notifier.show({
               type: 'error',
               message: err,
@@ -50,6 +50,25 @@ export class AgreeComponent implements OnInit, OnDestroy {
           },
         })
     );
+      
+  }
+  
+  clearForm() {
+    this.dataSurveyService.surveyFinal = {
+      evaluator: null,
+      participant: null,
+      companion: null,
+      medicalCenter: null,
+      date: null,
+      minimentalTestForm: null,
+      demographicInit: null,
+      demographicCronicConditions: null,
+      habits: null,
+      physicalActivity: null,
+      livingSpace: null,
+      enviromentBuild: null,
+      pshysicalPerformance: null,
+    };
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

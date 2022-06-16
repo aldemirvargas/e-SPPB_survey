@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +13,20 @@ import { UsersService } from '../../services/users.service';
 export class LoginComponent implements OnInit, OnDestroy {
   formLogin!: FormGroup;
   subLogin$!: Subscription;
+  private readonly notifier: NotifierService;
   
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private usersService: UsersService
+    private usersService: UsersService,
+    notifierService: NotifierService
   ) {
     this.formLogin = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
+    this.notifier = notifierService;
   }
 
   ngOnInit(): void {}
@@ -34,12 +38,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.subLogin$ = this.usersService.login(credentials).subscribe({
       next: (response) => {
-        console.log(response);
         sessionStorage.setItem('token', response.access_token || '');
         this.router.navigate(['/home']);
       },
       error: (error) => {
-        console.log(error);
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
       },
     });
   }

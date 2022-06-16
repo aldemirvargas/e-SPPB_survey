@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { JWTResponse } from '../models/JWTResponse';
 import { Credentials } from '../models/Credentials';
 import { User } from '../models/User';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UsersService {
 
   login(credentials: Credentials) {
     return this.http.post<JWTResponse>(
-      'http://localhost:8000/api/login',
+      `${environment.apiUrl}/login`,
       credentials,
       {
         observe: 'body'
@@ -21,13 +22,13 @@ export class UsersService {
   }
 
   me() {
-    return this.http.post<User>('http://localhost:8000/api/me', {
+    return this.http.post<User>(`${environment.apiUrl}/me`, {
       observe: 'body'
     });
   }
 
   logout() {
-    return this.http.post('http://localhost:8000/api/logout', {
+    return this.http.post(`${environment.apiUrl}/logout`, {
       observe: 'response'
     });
   }

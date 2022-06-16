@@ -3,6 +3,7 @@ import { DataSurveyService } from '../../services/data-survey.service';
 import { SurveyService } from '../../services/survey.service';
 import { QuestionsDb } from '../../models/QuestionsDb';
 import { Subscription } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-living-space-init',
@@ -13,10 +14,14 @@ export class LivingSpaceInitComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   public questionsFrecuency: QuestionsDb[] = [];
   public livingSpace: any = [];
+  private readonly notifier: NotifierService;
   constructor(
     public dataSurveyService: DataSurveyService,
-    private surveyService: SurveyService
-  ) {}
+    private surveyService: SurveyService,
+    notifierService: NotifierService
+  ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.dataSurveyService.surveyFinal.livingSpace = this.livingSpace;
@@ -26,8 +31,11 @@ export class LivingSpaceInitComponent implements OnInit, OnDestroy {
         this.dataSurveyService.allQuestions = data;
         this.buildObject();
       },
-      error: (err) => {
-        console.log(err);
+      error: (error) => {
+        this.notifier.show({
+          type: 'error',
+          message: error.error.message,
+        });
       },
     })
     );

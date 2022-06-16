@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  HostListener,
   OnDestroy,
   OnInit,
   Output,
@@ -10,6 +9,8 @@ import { Activity } from '../../models/Activity';
 import { ActivityDb } from '../../models/ActivityDb';
 import { SurveyService } from '../../services/survey.service';
 import { Subscription } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -20,7 +21,13 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
   public activities: Activity[] = [];
   public allActivities: ActivityDb[] = [];
   public currentSearchInput: number = null;
-  constructor(private surveyService: SurveyService) {}
+  private readonly notifier: NotifierService;
+  constructor(
+    private surveyService: SurveyService,
+    notifierService: NotifierService
+    ) {
+    this.notifier = notifierService;
+    }
 
   @Output() value = new EventEmitter<Activity[]>();
   ngOnInit(): void {}
@@ -53,7 +60,10 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
             this.allActivities = data;
           },
           error: (error) => {
-            console.log(error);
+            this.notifier.show({
+              type: 'error',
+              message: error.error.message,
+            });
           },
         })
       );
