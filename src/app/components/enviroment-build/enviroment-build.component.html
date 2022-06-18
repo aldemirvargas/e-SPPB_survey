@@ -1,0 +1,19 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <label for="basic-url" class="form-label fw-bold">1. En qué medida su barrio tiene…</label>
+            <div class="input-group mb-2" *ngFor="let question of questionsHave; let i = index">
+                <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                <app-many-or-some  [name]="'enviromentBuildq1'+question.id" [id]="'enviromentBuildq1'+question.id" (value)="setAnswer(question.id,$event)"></app-many-or-some>
+            </div>
+            <label for="basic-url" class="form-label fw-bold">2. De las siguientes situaciones ¿qué tanto es un problema
+                en su barrio?</label>
+            <div class="input-group mb-2"  *ngFor="let question of questionsProblem">
+                <span class="me-3" id="basic-addon1">{{question.description}}</span>
+                <app-problems [name]="'enviromentBuildq8'+question.id" [id]="'enviromentBuildq8'+question.id" (value)="setAnswer(question.id,$event)"></app-problems>
+            </div>
+            <app-paginator></app-paginator>
+
+        </div>
+    </div>
+</div>

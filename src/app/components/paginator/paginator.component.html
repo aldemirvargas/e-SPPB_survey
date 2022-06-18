@@ -1,0 +1,20 @@
+<div class="row mb-4">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <ul class="nav width100" id="surveyTabs" role="tablist">
+            <li class="nav-item width100" role="presentation">
+                <div class="btn-group me-2 width100" role="group" aria-label="First group">
+                    <button #prevBtn class="btn btn-primary" data-bs-toggle="tab"
+                        [attr.data-bs-target]="'#'+objectMapSurvey[currentPage-1 > 1 ?currentPage-1 : currentPage].tabId" (click)="prevPage()"
+                        type="button" role="tab" aria-selected="false"><i class="bi bi-arrow-left-circle"></i></button>
+                    <button type="button" class="btn btn-primary"
+                        disabled>{{objectMapSurvey[currentPage].tabName}}</button>
+                    <button #nextBtn class="btn btn-primary" data-bs-toggle="tab"
+                        [attr.data-bs-target]="'#'+objectMapSurvey[currentPage+1 < objectMapSurvey.length-2 ? currentPage-1 : currentPage].tabId" (click)="nextPage()"
+                        type="button" role="tab" aria-selected="false"><i class="bi bi-arrow-right-circle"></i></button>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

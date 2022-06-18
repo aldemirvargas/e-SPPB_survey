@@ -1,0 +1,71 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <label for="basic-url" class="form-label fw-bold">20.1 Diga a qué ritmo camina, al menos durante 10 minutos
+                sin parar.</label>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="speed" id="speed1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speed1" (click)="setAnswerString('speed','Ritmo muy lento')">Camina a ritmo muy lento</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speed2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speed2" (click)="setAnswerString('speed','Ritmo lento')">Camina a ritmo lento</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speed3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speed3" (click)="setAnswerString('speed','Ritmo ligero')">Camina a ritmo ligero</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speed4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speed4" (click)="setAnswerString('speed','Ritmo moderado')">Camina a ritmo moderado</label>
+
+                <input type="radio" class="btn-check" name="speed" id="speed5" autocomplete="off">
+                <label class="btn btn-outline-primary" for="speed5" (click)="setAnswerString('speed','Ritmo rápido')">Camina a ritmo rápido</label>
+            </div>
+            
+            <div class="input-group mb-2">
+                <span class="me-3" id="basic-addon1">20.2 Cuántos días a la semana, camina al paso elegido, al menos
+                    durante 10 minutos sin parar.</span>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="walking" id="walking1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking1" (click)="setAnswer('walkingDays',0)">0</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking2" (click)="setAnswer('walkingDays',1)">1</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking3" (click)="setAnswer('walkingDays',2)">2</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking4" (click)="setAnswer('walkingDays',3)">3</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking5" (click)="setAnswer('walkingDays',4)">4</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking6" (click)="setAnswer('walkingDays',5)">5</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking7" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking7" (click)="setAnswer('walkingDays',6)">6</label>
+
+                    <input type="radio" class="btn-check" name="walking" id="walking8" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="walking8" (click)="setAnswer('walkingDays',7)">7</label>
+
+                </div>
+            </div>
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">20.3 En promedio, cuánto tiempo en total camina al
+                    ritmo elegido.</span>
+                <input type="time" class="form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="physicalActivity.walkingTime">
+                <span class="input-group-text" id="basic-addon1">Minutos</span>
+            </div>
+            <label for="basic-url" class="form-label fw-bold">20.4 Piense, en una semana común y corriente durante el
+                mes pasado.</label>
+            <div class="input-group mb-2">
+
+                <span class="input-group-text" id="basic-addon1">Con qué frecuencia y tiempo, hace actividades
+                    deportivas, recreativas o de ocio.</span>
+                <app-activities (value)="physicalActivity.activities = $event"></app-activities>
+            </div>
+            <app-paginator></app-paginator>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<!--Activities dinamic table-->
+<div class="row">
+    <div class="col">
+        <table class="table table-striped table-bordered table-hover mt-2" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Promedio de tiempo/vez</th>
+                    <th>Veces por semana</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd gradeX" *ngFor="let activity of activities">
+                    <td>{{activity.id}}</td>
+                    <td>
+                        <input type="text" value="{{activity.name}}" class="form-control" [(ngModel)]="activity.name" (keyup)="searchActivity($event, activity.id)"/>
+                        <div class="list-group">
+                            <button  class="list-group-item" 
+                            *ngFor="let activityFind of allActivities"
+                            (click)="setActivity(activity, activityFind)">{{activityFind.activity}} | {{activityFind.average}} | {{activityFind.frequency}}</button >
+                        </div>
+                    </td>
+                    <td><input type="text" value="{{activity.avg}}" class="form-control" [(ngModel)]="activity.avg" (keyup)="changesInModel()"/>
+                    </td>
+                    <td><input type="text" value="{{activity.times}}" class="form-control"
+                            [(ngModel)]="activity.times"  (keyup)="changesInModel()"/></td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteActivity(activity)">
+                            <i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot class="bg-light">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-outline-primary btn-sm d-flex justify-content-end"
+                            (click)="addActivity()"><i class="bi bi-plus"></i></button>
+                    </div>
+                </div>
+            </tfoot>
+        </table>
+    </div>
+</div>

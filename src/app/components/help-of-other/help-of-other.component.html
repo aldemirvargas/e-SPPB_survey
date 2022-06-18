@@ -1,0 +1,12 @@
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}1" (click)="setAnswer('helpOfOther')">Ayudas de otro</label>
+
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}2" (click)="setAnswer('only team')">Equipo solamente</label>
+
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}3" (click)="setAnswer('noOne')">Ninguno (ni ayuda personal ni
+        equipo)</label>
+
+</div>

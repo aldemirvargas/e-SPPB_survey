@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5 class="fw-bold  text-center mb-2">COLCIENCIAS</h5>
+            <h5 class="fw-bold  text-center mb-2">
+                UNIVERSIDAD DE CALDAS- Gerontología y Geriatría
+                UNIVERSIDAD NACIONAL DE COLOMBIA SEDE MANIZALES - GAIA
+                Programa Nacional de Ciencia, Tecnología e innovación en salud-2016
+
+            </h5>
+            <h5 class="fw-bold  text-center mb-2">PROYECTO PILOTO</h5>
+            <h5 class="fw-bold  text-center mb-2">
+                “Diseño y validación de dispositivos electrónicos E-SPPB para la evaluación de la capacidad funcional en
+                adultos mayores del Departamento de Caldas”
+            </h5>
+                <div class="input-group mb-2">
+                    <span class="input-group-text" id="basic-addon1">No Formulario:</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" value="Automático" disabled>
+                </div>
+                <h6 class="text-center">CONSENTIMIENTO INFORMADO </h6>
+
+                <p class="textJustify">
+                    Yo <strong>{{dataSurveyService?.surveyFinal?.participant?.name}}</strong> con documento de identificación
+                    Número <strong>{{dataSurveyService?.surveyFinal?.participant?.document}}</strong> he sido seleccionado para participar en el estudio piloto en mención
+                    del cual es investigador responsable el Docente Éder Peña Quimbaya y el grupo de investigación
+                    quienes desarrollan la prueba piloto en Manizales.
+                    1. Me han informado que el objetivo del proyecto es validar y evaluar los E-SPPB+ que miden en el
+                    adulto mayor la máxima distancia de alcance, tiempo que mantiene la posición del cuerpo en
+                    equilibrio en dos pies, la velocidad del paso en la marcha y el tiempo para incorporarse de una
+                    silla.
+                    2. Me han explicado que se me realizaran las siguientes mediciones no invasivas: presión arterial,
+                    peso, estatura, alcance funcional, equilibrio: con pies separados, semitandem, tándem, velocidad de
+                    la marcha e incorporarse de una silla de forma repetida.
+                    3. He sido informado que, bajo las condiciones normales de las pruebas, no debe aparecer ninguna
+                    molestia, ni consecuencias y no presenta riesgos para mi salud, siempre podré recurrir al
+                    profesional de salud que realiza la prueba.
+                    4. Los beneficios del estudio ayudaran a validar los dispositivos E-SPPB que favorezcan la
+                    asistencia del profesional de salud en la evaluación del adulto mayor para las pruebas de ejecución
+                    física alcance funcional, equilibrio, velocidad de la marcha e incorporarse de una silla.
+                    5. He podido hacer preguntas sobre el estudio y he recibido información suficiente sobre el mismo.
+                    6. Se me aclaró que puedo abandonar el estudio en cuanto yo lo decida, sin necesidad de dar
+                    explicaciones.
+                    7. Se me garantiza la privacidad, el anonimato y confidencialidad en la información
+                    suministrada/obtenida y por lo tanto, autorizo la publicación del estudio.
+
+                    Con fecha <strong>{{dataSurveyService?.surveyFinal?.date}}</strong>, he comprendido lo anterior, y una vez se me aclararon todas las
+                    dudas que surgieron con mi participación en el proyecto, acepto gratuita y voluntariamente a
+                    participar en el proyecto piloto “Diseño y validación de dispositivos electrónicos E-SPPB para la
+                    evaluación de la capacidad funcional en adultos mayores del Departamento de Caldas”. Se me ha
+                    entregado una copia del presente consentimiento informado
+
+                </p>
+
+
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#agreeModal">
+                Aceptar y Guardar
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="agreeModal" tabindex="-1" aria-labelledby="agreeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="agreeModalLabel">Consentimiento informado</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            He leído y entendido el contenido del presente consentimiento informado.
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" (click)="sendForm()" data-bs-dismiss="modal">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <app-paginator></app-paginator>
+        </div>
+    </div>
+</div>

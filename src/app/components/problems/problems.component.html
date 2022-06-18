@@ -1,0 +1,14 @@
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}1" (click)="setAnswer('manyProblems')">Muchos problemas</label>
+
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}2" (click)="setAnswer('lessProblem')">Poco problema</label>
+
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}3" (click)="setAnswer('isNotProblem')">No es un problema </label>
+
+    <input type="radio" class="btn-check" name="{{name}}" id="{{id}}4" autocomplete="off">
+    <label class="btn btn-outline-primary" for="{{id}}4" (click)="setAnswer('doNotKnow')">No sabe</label>
+
+</div>

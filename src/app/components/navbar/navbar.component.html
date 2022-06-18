@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./../../../assets/img/sppbSurvey.png" width="100px" height="100%" />
+            {{userLogged.rol}}
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="" (click)="home()">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link active" id="survey-tab" data-bs-toggle="tab" data-bs-target="#survey"
+                        type="button" role="tab" aria-controls="survey" aria-selected="true">
+                        <i class="bi bi-newspaper"></i> Encuestas
+                </a>
+
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <!--User Menu-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> {{userLogged.name}} {{userLogged.last_name}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" (click)="onLogout()"><i class="bi bi-box-arrow-left"></i>
+                                Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
